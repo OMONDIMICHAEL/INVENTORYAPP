@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bonbon&family=Bungee+Shade&family=Bungee+Spice&family=Coda:wght@400;800&family=Codystar:wght@300;400&family=Ewert&family=Faster+One&family=Honk&family=Irish+Grover&family=Kablammo&family=Nabla&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik+Moonrocks&display=swap');
+html, body{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    background-color: darkslategray;
+    width: 100%;
+    height: 100%;
+}
+header{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    top: 0;
+    position: sticky;
+}
+a{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    outline-color: transparent;
+    text-decoration: none;
+    padding: 3px 6px;
+    text-align: center;
+}
+a:link{
+    color: blue;
+}
+a:visited{
+    color: purple;
+}
+a:focus,
+a:hover{
+    background-color: seashell;
+    color: blue;
+    border-style: outset;
+    border-radius: 8px;
+}
+a:active{
+    color: red;
+}
+#headerArt{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 5px;
+    border-style: outset;
+    background-color: plum;
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+}
+#mainArt{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-style: outset;
+    background-color: lightsteelblue;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 2fr;
+    grid-template-areas: 
+        "sidebar content"
+    ;
+}
+#mainArt1{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    grid-area: sidebar;
+    margin-top: 5px;
+    padding: 8px;
+    overflow: scroll;
+}
+#mainArt2{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    grid-area: content;
+    margin-top: 5px;
+    padding: 8px;
+    overflow: scroll;
+    height:100vh;
+    overflow-y: scroll;
+}
+@media (min-width: 300px){
+    #mainArt{
+        font-family: "Coda", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        grid-template-columns: auto 5px;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "sidebar"
+        "content"
+        ;
+        overflow-wrap: break-word;
+    }
+    .sidebarImage{
+        border-radius: 12px;
+        border: 5px solid snow;
+        height: 32px;
+        width: 32px;
+        object-fit: cover;
+        cursor: pointer;
+        margin-left: 0;
+    }
+}
+@media (min-width: 800px){
+    #mainArt{
+        font-family: "Coda", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        grid-template-columns: minmax(150px, 200px) 5fr;
+        grid-template-areas: 
+        "sidebar content"
+        ;
+        overflow-wrap: break-word;
+    }
+    .sidebarImage{
+        border-radius: 12px;
+        border: 5px solid snow;
+        height: 62px;
+        width: 62px;
+        object-fit: cover;
+        cursor: pointer;
+        margin-left: 0;
+    }
+}
+#supplierProductSecGrid{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-image: url("../IMAGES/skyStars.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: seashell;
+    padding: 5px;
+    border-style: outset;
+    min-height: 100px;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px,450px));
+    grid-template-rows: repeat(auto-fill, minmax(40px,550px));
+    gap: 20px;
+}
+#supplierProductSecGridItems{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: cadetblue;
+    padding: 6px;
+    border-radius: 8px;
+    border-style: outset;
+}
+#footerArt{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 5px;
+    border-style: outset;
+    background-color: rosybrown;
+    display: grid;
+    grid-template-columns: 5fr 5fr 5fr;
+    font-size: 18px;
+}
+.sidebarBtn{
+    font-family: "Playfair Display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 18px;
+    background-color: inherit;
+    color: blue;
+    border: 1px solid sienna;
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 3px;
+}
+[type=text]{
+    padding: 5px;
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+[type=number]{
+    padding: 5px;
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+[type=email]{
+    padding: 5px;
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+.submitBtn{
+    padding: 8px;
+    font-weight: bolder;
+    font-family: "Playfair Display", sans-serif;
+    font-style: normal;
+    cursor: pointer;
+    font-size: 22px;
+    background-color: sienna;
+    color: azure;
+    border-style: outset;
+    border-radius: 5px;
+}
+.supplierBtns{
+    padding: 8px;
+    font-weight: bolder;
+    font-family: "Playfair Display", sans-serif;
+    font-style: normal;
+    cursor: pointer;
+    font-size: 22px;
+    background-color: cornflowerblue;
+    color: cornsilk;
+    border-style: outset;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+#addSupplierSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+#mySalesSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+#myOrdersSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+#addSupplierProductSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+#makeOrderSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    max-width: 100%;
+    max-height: 100%;
+    overflow-x: scroll;
+    display: none;
+    overflow-y: scroll;
+}
+#makeOrderSecGrid{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    min-height: 90%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px,350px));
+    grid-template-rows: repeat(auto-fill, minmax(20px,fit-content));
+    gap: 20px;
+}
+#makeOrderSecGridItems{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: cadetblue;
+    padding: 6px;
+    border-radius: 8px;
+    border-style: outset;
+}
+#secGridItemSpan{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: snow;
+}
+#secGridEnableReorderSpan{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    float: right;
+    display: none;
+}
+#secGridDisableReorderSpan{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    float: right;
+    display: none;
+}
+#sessionIdSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow-wrap: break-word;
+    color: snow;
+    float: right;
+}
+#selectSupplierProfile{
+    background-color: springgreen;
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 7px;
+    border-style: outset;
+}
+#supplierProfileImage{
+    border-radius: 32px;
+    height: 32px;
+    width: 32px;
+    border: 50px;
+    object-fit: cover;
+    cursor: pointer;
+}
+#closeMenuIcon{
+    width: fit-content;
+    cursor: pointer;
+    font-size: 50px;
+}
+#openMenuIcon{
+    width: fit-content;
+    cursor: pointer;
+    display: none;
+    font-size: 50px;
+}
+#supplierOrderInvoiceSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+#tableHr{
+    background-color: tomato;
+    height: 3px;
+}
+#downloadInvoiceBtn{
+    padding: 8px;
+    font-weight: bolder;
+    font-family: "Playfair Display", sans-serif;
+    font-style: normal;
+    cursor: pointer;
+    font-size: 22px;
+    background-color: midnightblue;
+    color: mintcream;
+    border-style: outset;
+    border-radius: 5px;
+    border: 1px solid mediumblue;
+    margin-bottom: 5px;
+}
+.container{
+    position: absolute;
+    margin: auto;
+    top: 5;
+    left: 1;
+    right: 0;
+    bottom: 5;
+    width: 300px;
+    height: fit-content;
+    float: right;
+}
+.container .search{
+    position: absolute;
+    margin: auto;
+    float: right;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    background: crimson;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.container .search:hover{
+    cursor: pointer;
+}
+.container .search::before{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 22px;
+    right: 0;
+    bottom: 0;
+    left: 22px;
+    width: 12px;
+    height: 2px;
+    background: white;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+.container .search::after{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -5px;
+    right: 0;
+    bottom: 0;
+    left: -5px; 
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all 0.5s;
+}
+.container input{
+    font-family: monospace;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 30px;
+    outline: none;
+    border: none;
+    background: cornsilk;
+    color: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 10px cornsilk;
+    padding: 6px;
+    border-radius: 30px;
+    box-shadow: 0 0 25px 0 cornsilk, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+}
+.container input:hover{
+    cursor: pointer;
+}
+.container input:focus{
+    width: 150px;
+    opacity: 1;
+    cursor: text;
+}
+.container input:focus ~ .search{
+    right: -250px;
+    background: #151515;
+    z-index: 6;
+}
+.container input:focus ~ .search::before{
+    top: 0;
+    left: 0;
+    width: 25px;
+}
+.container input:focus ~ .search::after{
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    border: none;
+    background: white;
+    border-radius: 0%;
+    transform: rotate(-45deg);
+}
+.container input::placeholder{
+    color: black;
+    opacity: 0.5;
+    font-weight: bolder;
+}
+/* #searchBtn{
+    float: right;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 28px;
+    color: cornsilk;
+    background-color: cadetblue;
+    padding: 0px 20px;
+    border-radius: 8px;
+    border-style: outset;
+    border: 3px solid black;
+    cursor: pointer;
+} */
+#searchSupplierProductSec{
+    padding: 6px;
+    width: fit-content;
+    border-style: outset;
+    background-color: cadetblue;
+    height: fit-content;
+    border-radius: 8px;
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#supplierProductSearchSec{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px,450px));
+    grid-template-rows: repeat(auto-fill, minmax(40px,550px));
+    gap: 20px;
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#supplierProductTitle{
+    font-size: 28px;
+    font-family: "Black Ops One", sans-serif;
+    font-style: normal;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    border-style: outset;
+    border-radius: 8px;
+    background-color: seashell;
+    width: 95%;
+    color: #151515;
+}
