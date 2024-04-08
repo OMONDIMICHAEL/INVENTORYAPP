@@ -225,16 +225,6 @@ $wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
                                     </section>
                                 ";
                             }
-                            // foreach ($autoProductIdInArr[0] as $idz => $idzExist) {
-                            //     if($idzExist > 0){
-                            //     ?>
-                            //     <script>
-                            //         document.getElementById("secGridDisableReorderSpan").style.display = "block";
-                            //         // document.getElementById("secGridDisableReorderSpan").innerHTML = $autoProductIdInArr;
-                            //     </script>
-                            //     <?php
-                            //     }
-                            // }
                             if($productIdInArr > 0){
                                 ?>
                                 <script>
