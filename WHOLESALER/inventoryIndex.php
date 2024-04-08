@@ -225,14 +225,14 @@ $wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
                                     </section>
                                 ";
                             }
-                            if($productIdInArr > 0){
-                                ?>
-                                <script>
-                                    document.getElementById("secGridDisableReorderSpan").style.display = "block";
-                                    // document.getElementById("secGridDisableReorderSpan").innerHTML = $autoProductIdInArr;
-                                </script>
-                                <?php
-                            }
+                            // if($productIdInArr > 0){
+                            //     ?>
+                            //     <script>
+                            //         document.getElementById("secGridDisableReorderSpan").style.display = "block";
+                            //         // document.getElementById("secGridDisableReorderSpan").innerHTML = $autoProductIdInArr;
+                            //     </script>
+                            //     <?php
+                            // }
                         ?>
                     </section>
                 </section>
