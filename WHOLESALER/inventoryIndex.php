@@ -197,9 +197,7 @@ $wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
                                             $mailSubject = "low stock,an order has been made, pay to confirm";
                                             $mailMessage = "pay the compony to complete the order";
                                             $mailHeader = "FROM:mikemike3662@yahoo.com";
-                                            if ($updateWholesalerProduct->execute()) {
-                                                mail($emailto,$mailSubject,$mailMessage,$mailHeader);
-                                            }
+                                            // mail($emailto,$mailSubject,$mailMessage,$mailHeader);
                                         }
                                     }
                                 }
