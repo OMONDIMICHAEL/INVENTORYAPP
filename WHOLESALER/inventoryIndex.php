@@ -1,4 +1,10 @@
 <?php
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 session_start();
 require("../CONNECTIONS/inventoryConnection.php");
 require("../FUNCTIONS/wholesalerFunction.php");
@@ -193,15 +199,43 @@ $wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
                                             $updateWholesalerProduct->bindParam(':newWholesalerProductQuantity',$newWholesalerProductQuantity);
                                             $updateWholesalerProduct->bindParam(':wholesalerNum',$wholesalerNumInArr);
                                             $updateWholesalerProduct->execute();
-                                            $emailto = "mikemike3662@gmail.com";
-                                            $mailSubject = "low stock,an order has been made, pay to confirm";
-                                            $mailMessage = "pay the compony to complete the order";
-                                            $mailHeader = "FROM:mikemike3662@yahoo.com";
-                                            // mail($emailto,$mailSubject,$mailMessage,$mailHeader);
+
                                         }
                                     }
                                 }
                                 
+                            }
+
+                                            function sendMail($wholesalerEmail,$wholesalerName,$autoProductNameInArr,$autoSupplierNameInArr,$autoProductName,$autoProductNameInArrEmail){
+                                                $mail = new PHPMailer(true);
+                                                try{
+                                                    $mail->isSMTP();
+                                                    $mail->Host = 'smtp.gmail.com';
+                                                    $mail->SMTPAuth = true;
+                                                    $mail->Username = 'mikemike3662@gmail.com';
+                                                    $mail->Password = 'qwanwcfbdsudeatf';
+                                                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                                                    $mail->Port = 465;
+                                                    $mail->setFrom('mikemike3662@gmail.com', 'IMS APP');
+                                                    $mail->addAddress($wholesalerEmail, $wholesalerName);
+                                                    $mail->addReplyTo('mikemike3662@gmail.com', 'IMS APPLICATION');
+                                                    $mail->isHTML(true);
+                                                    $mail->Subject = 'LOW STOCK ALERT.';
+                                                    // $mail->Body = "<p>$autoProductNameInArr IS LOW and an order has been made for you by IMS as was provided by <b>YOU</b>. Pay <b>$autoSupplierNameInArr</b> to complete the order.</p>";
+                                                    $body = "<p>The following products are very low</p><ul>";
+                                                    foreach ($autoProductName as $autoProductNameInArrEmail) {
+                                                        $body .= "<li>$autoProductNameInArrEmail</li>";
+                                                    }
+                                                    $body .= "</ul>";
+                                                    $mail->Body = $body;
+                                                    $mail->AltBody = 'An order has been made for you on your product. Visit your IMS application and pay the wholesaler to complete the process.';
+                                                    $mail->send();
+                                                } catch (Exception $e) {
+                                                        echo "mail err: {$mail->ErrorInfo}";
+                                                    }
+                                            }
+                            if ($updateWholesalerProduct) {
+                                sendMail($wholesalerEmail,$wholesalerName,$autoProductNameInArr,$autoSupplierNameInArr,$autoProductName,$autoProductNameInArrEmail);
                             }
                             $getWholesalerProducts = $conn->prepare("SELECT * FROM inventory.wholesalerProduct WHERE wholesalerProduct.wholesalerName = :wholesalerName");
                             $getWholesalerProducts->bindParam(':wholesalerName', $wholesalerName);
@@ -223,14 +257,6 @@ $wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
                                     </section>
                                 ";
                             }
-                            // if($productIdInArr > 0){
-                            //     ?>
-                            //     <script>
-                            //         document.getElementById("secGridDisableReorderSpan").style.display = "block";
-                            //         // document.getElementById("secGridDisableReorderSpan").innerHTML = $autoProductIdInArr;
-                            //     </script>
-                            //     <?php
-                            // }
                         ?>
                     </section>
                 </section>
