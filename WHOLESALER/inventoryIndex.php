@@ -206,7 +206,7 @@ $wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
                                 
                             }
 
-                                            function sendMail($wholesalerEmail,$wholesalerName,$autoProductNameInArr,$autoSupplierNameInArr,$autoProductName,$autoProductNameInArrEmail){
+                                            function sendMail($wholesalerEmail,$wholesalerName,$autoSupplierNameInArr,$autoProductDetailsArr,$autoProductDetailsArrIndex,$autoProductNameInArr){
                                                 $mail = new PHPMailer(true);
                                                 try{
                                                     $mail->isSMTP();
@@ -221,21 +221,20 @@ $wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
                                                     $mail->addReplyTo('mikemike3662@gmail.com', 'IMS APPLICATION');
                                                     $mail->isHTML(true);
                                                     $mail->Subject = 'LOW STOCK ALERT.';
-                                                    // $mail->Body = "<p>$autoProductNameInArr IS LOW and an order has been made for you by IMS as was provided by <b>YOU</b>. Pay <b>$autoSupplierNameInArr</b> to complete the order.</p>";
-                                                    $body = "<p>The following products are very low</p><ul>";
-                                                    foreach ($autoProductName as $autoProductNameInArrEmail) {
-                                                        $body .= "<li>$autoProductNameInArrEmail</li>";
-                                                    }
-                                                    $body .= "</ul>";
-                                                    $mail->Body = $body;
+                                                    $mail->Body = "<p>$autoProductNameInArr IS LOW and an order has been made for you by IMS as was provided by <b>YOU</b>. Pay <b>$autoSupplierNameInArr</b> to complete the order.</p>";
+                                                    // $body = "<p>The following products are very low</p><ul>";
+                                                    // foreach ($autoProductDetailsArr[3] as $autoProductDetailsArrIndex => $autoProductNameInArr) {
+                                                    //     $body .= "<li>$autoProductNameInArr<br></li>";
+                                                    // }
+                                                    // $mail->Body = $body;
                                                     $mail->AltBody = 'An order has been made for you on your product. Visit your IMS application and pay the wholesaler to complete the process.';
-                                                    $mail->send();
+                                                    // $mail->send();
                                                 } catch (Exception $e) {
-                                                        echo "mail err: {$mail->ErrorInfo}";
+                                                        // echo "mail err: {$mail->ErrorInfo}";
                                                     }
                                             }
                             if ($updateWholesalerProduct) {
-                                sendMail($wholesalerEmail,$wholesalerName,$autoProductNameInArr,$autoSupplierNameInArr,$autoProductName,$autoProductNameInArrEmail);
+                                // sendMail($wholesalerEmail,$wholesalerName,$autoSupplierNameInArr,$autoProductDetailsArr[3],$autoProductDetailsArrIndex,$autoProductNameInArr);
                             }
                             $getWholesalerProducts = $conn->prepare("SELECT * FROM inventory.wholesalerProduct WHERE wholesalerProduct.wholesalerName = :wholesalerName");
                             $getWholesalerProducts->bindParam(':wholesalerName', $wholesalerName);

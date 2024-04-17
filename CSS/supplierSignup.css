@@ -7,7 +7,7 @@ html, body{
     background-color: teal;
     color: oldlace;
 }
-[type=text]{
+/*[type=text]{
     padding: 5px;
     font-weight: bold;
     font-family: monospace;
@@ -27,13 +27,13 @@ html, body{
     font-family: monospace;
     font-size: 16px;
     width: 300px;
-}
+}*/
 #formSec{
-    background-color: lightslategray;
+    background-color: snow;
     border-style: outset;
     padding: 5px;
 }
-.submitBtn{
+/*.submitBtn{
     color: snow;
     cursor: pointer;
     background-color: olivedrab;
@@ -44,8 +44,8 @@ html, body{
     border-radius: 5px;
     font-size: 22px;
     width: 200px;
-}
-#registerBtnSec{
+}*/
+/*#registerBtnSec{
     float: right;
     background-color: inherit;
     border-style: outset;
@@ -85,7 +85,7 @@ html, body{
     font-family: monospace;
     border-style: none;
     font-size: 22px;
-}
+}*/
 #footerSec{
     padding: 10px;
 }

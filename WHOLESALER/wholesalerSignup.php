@@ -10,6 +10,9 @@ session_start();
     <meta name="author" content="mikemike3662@gmail.com">
     <meta name="description" content="inventory web app">
     <title>inventory app</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
     <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
     <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
 </head>
@@ -25,27 +28,65 @@ session_start();
         <article>
             <section id = "formSec">
                 <form action="../ACTIONS/wholesalerSignup.php" method="post">
-                    <fieldset><center>
-                        <section>
-                            Wholesaler Name:<br>
-                            <input type="text" required name="wholesalerName" placeholder="umoja supermarket">
-                        </section><br>
-                        <section>
-                            wholesaler Email:<br>
-                            <input type="email" required name="wholesalerEmail" placeholder="umo@gmail.com">
-                        </section><br>
-                        <section>
-                            wholesaler Phone:<br>
-                            <input type="text" required name="wholesalerPhone" placeholder="07123456789">
-                        </section><br>
-                        <section>
-                            <button name="submit" class="submitBtn">REGISTER!</button>
-                        </section>
-                    </fieldset></center>
-                </form>
-            </section><br>
-            <section id = "registerBtnSec">
-                <button id="wholesalerLoginNavBtn"><u>Already have an account? Login.</u></button>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row mb-4">
+                        <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="txtWholesaleName" required name="wholesalerName" placeholder="umoja supermarket" class="form-control" />
+                            <label class="form-label" for="txtWholesaleName">Wholesale name</label>
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="txtWholesalerPhone" required name="wholesalerPhone" placeholder="07123456789" class="form-control" />
+                            <label class="form-label" for="txtWholesalerPhone">Phone No</label>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" id="txtWholesalerEmail" required name="wholesalerEmail" placeholder="xyz@gmail.com" class="form-control" />
+                        <label class="form-label" for="txtWholesalerEmail">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="wholesalerPassword" class="form-control" />
+                        <label class="form-label" for="wholesalerPassword">Password</label>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex justify-content-center mb-4">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                        <label class="form-check-label" for="form2Example33">
+                        Subscribe to our newsletter
+                        </label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button data-mdb-ripple-init type="submit" name="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                        <p>or sign up with:</p>
+                        <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                        </button>
+
+                        <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                        </button>
+
+                        <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-twitter"></i>
+                        </button>
+
+                        <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-github"></i>
+                        </button>
+                    </div>
+                    </form>
             </section>
         </article>
     </main>
@@ -56,6 +97,7 @@ session_start();
             </section>
         </article>
     </footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
     <script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';

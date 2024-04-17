@@ -1,3 +1,4 @@
+
 const salesAndOrderBtn = document.getElementById("salesAndOrderBtn");
 const wholesalerRegNavBtn = document.getElementById("wholesalerRegNavBtn");
 const wholesalerLoginNavBtn = document.getElementById("wholesalerLoginNavBtn");
@@ -104,10 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         closeMenuIcon.style.display = "block";
         openMenuIcon.style.display = "none";
         });}
-        if (disableTxt) {
-        disableTxt.disabled = true;
-        }
-});//disableTxt.disabled = true;
+});
 function myProfileOptClick(params) {
     console.log("opt1clk")
 }

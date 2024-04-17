@@ -10,6 +10,9 @@ session_start();
     <meta name="author" content="mikemike3662@gmail.com">
     <meta name="description" content="inventory web app">
     <title>inventory app</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
     <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
     <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
 </head>
@@ -24,24 +27,62 @@ session_start();
     <main>
         <article>
             <section id = "formSec">
-                <form action="../ACTIONS/wholesalerLogin.php" method="post"><center>
-                    <fieldset>
-                        <section>
-                            wholesaler Email:<br>
-                            <input type="email" required name="wholesalerEmail" placeholder="umoja@gmail.com">
-                        </section><br>
-                        <section>
-                            wholesaler Phone:<br>
-                            <input type="text" required name="wholesalerPhone" placeholder="7123456789">
-                        </section><br>
-                        <section>
-                            <button name="submit" class="submitBtn">LOGIN!</button>
-                        </section>
-                    </fieldset></center>
+                <form action="../ACTIONS/wholesalerLogin.php" method="post">
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" required name="wholesalerEmail" id="txtEmail" placeholder="xyz@gmail.com" class="form-control" />
+                        <label class="form-label" for="txtEmail">wholesaler Email:</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="txtPassword" required name="wholesalerPassword" class="form-control" />
+                        <label class="form-label" for="txtPassword">wholesaler Password</label>
+                    </div>
+
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4">
+                        <div class="col d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
+                            <label class="form-check-label" for="form2Example34"> Remember me </label>
+                        </div>
+                        </div>
+
+                        <div class="col">
+                        <!-- Simple link -->
+                        <a href="#!">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button data-mdb-ripple-init type="submit" name="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                        <p>Not a member? <a href="wholesalerSignup.php">Register</a></p>
+                        <p>or sign up with:</p>
+                        <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                        </button>
+
+                        <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-google"></i>
+                        </button>
+
+                        <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-twitter"></i>
+                        </button>
+
+                        <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                        <i class="fab fa-github"></i>
+                        </button>
+                    </div>
                 </form>
             </section><br>
             <section id = "registerBtnSec">
-                <button id="wholesalerRegNavBtn"><u>Don't have an account? Register.</u></button>
+                <!-- <button id="wholesalerRegNavBtn"><u>Don't have an account? Register.</u></button> -->
             </section>
         </article>
     </main>
@@ -52,6 +93,7 @@ session_start();
             </section>
         </article>
     </footer>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
     <script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';

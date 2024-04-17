@@ -8,14 +8,14 @@ if ($conn == null) {
 
     if (isset($_POST['submit'])) {
         $wholesalerEmail = filter_var($_POST['wholesalerEmail'], FILTER_SANITIZE_STRING);
-        $wholesalerPhone = filter_var($_POST['wholesalerPhone'], FILTER_SANITIZE_STRING);
+        $wholesalerPhone = filter_var($_POST['wholesalerPassword'], FILTER_SANITIZE_STRING);
 
         $logwholesaler = $conn->prepare("SELECT * FROM inventory.wholesalersRegistered WHERE wholesalersRegistered.wholesalerEmail = :wholesalerEmail");
         $logwholesaler->bindParam(':wholesalerEmail',$wholesalerEmail, PDO::PARAM_STR);
         $logwholesaler->execute();
         $logwholesaler->rowCount();
             foreach ($logwholesaler->fetchAll(PDO::FETCH_ASSOC) as $wholesalerDetails);
-            if ($wholesalerDetails['wholesalerPhone'] == $wholesalerPhone && $wholesalerDetails['wholesalerEmail'] == $wholesalerEmail) {
+            if ($wholesalerDetails['wholesalerPassword'] == $wholesalerPassword && $wholesalerDetails['wholesalerEmail'] == $wholesalerEmail) {
                 $_SESSION['wholesalerId'] = $wholesalerDetails['wholesalerId'];
                 ?>
                 <script>

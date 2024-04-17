@@ -15,7 +15,6 @@ if (!isset($_SESSION['wholesalerId'])) {
 $wholesalerDetails = loginDetails($conn);
 $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +24,11 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
     <meta name="description" content="inventory web app">
     <title>Inventory App</title>
 </head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
-    <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
+<link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
 <body>
     <?php require("../HEADER/wholesalerHeader.php"); ?>
     <main>
@@ -52,37 +54,16 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
                 </section>
             </article>
             <article id="mainArt2">
-                <section id="mainArtSec2">
-                    <?php
-                    $productId = $_GET['productId'];
-                    $checkIfInAutoStock = $conn->prepare("SELECT * FROM inventory.wholesalerAutoStock WHERE productId = :productId");
-                    $checkIfInAutoStock->bindParam(':productId', $productId, PDO::PARAM_INT);
-                    $checkIfInAutoStock->execute();
-                    if ($checkIfInAutoStock->rowCount() > 0) {
-                        ?>
-                        <script>
-                            location = "wholesalerEditAutoStock.php?productId=<?php echo $productId ?>";
-                            alert("Error! You already registered this product for auto ordering. Edit the registration or go back to main menu.")
-                        </script>
-                        <?php
-                        die();
-                    }
-                    $checkProductDetails = $conn->prepare("SELECT * FROM inventory.supplierProduct WHERE supplierProduct.productId = :productId");
-                    $checkProductDetails->bindParam(':productId', $productId, PDO::PARAM_INT);
-                    $checkProductDetails->execute();
-                    foreach($checkProductDetails->fetchAll(PDO::FETCH_ASSOC) as $productDetails)
-                    ?>
-                    <form action="../ACTIONS/wholesalerAutoStock.php?productId=<?php echo $productId ?>" method="post">
-                        <fieldset>
-                            Product Name:<br><input type="text" name= "productName" value = "<?php echo $productDetails['productName'] ?>" required placeholder="bamburi cement"><br><br>
-                            Remaining stock quantity to enable re-ordering:<br><input type="number" name= "remainingStock" required placeholder="10"><br><br>
-                            Quantity to re-order on low stock:<br><input type="number" name= "quantityToReorder" required placeholder="34"><br><br>
-                            Re-order description:<br><input type="text" name= "reorderDescription" required placeholder="bags of cement"><br><br>
-                            Supplier:<br><input type="text" class="disable" name= "supplierName" value = "<?php echo $productDetails['supplierName'] ?>" required placeholder="edwardstuck@gmail.com"><br><br>
-                            <button type="submit" name="submit" class="submitBtn">ENABLE AUTO-REORDER.</button>
-                        </fieldset>
-                    </form>
-                </section>
+                <form method="post" action="../ACTIONS/wholesalerEditAutoStock.php">
+                    <fieldset>
+                        <legend></legend>
+                        <!-- Accent-colored raised button with ripple -->
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            Button
+                        </button>
+
+                    </fieldset>
+                </form>
             </article>
         </article>
     </main>
@@ -91,6 +72,7 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
                 <section id="sessionIdSec"><?php echo $wholesalerLoginId; ?></section>
         </article>
     <script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = '../CSS/inventoryIndex.css';
