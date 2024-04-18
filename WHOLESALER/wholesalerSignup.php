@@ -9,12 +9,13 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="mikemike3662@gmail.com">
     <meta name="description" content="inventory web app">
-    <title>inventory app</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
     <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
     <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
+    <title>Inventory App</title>
 </head>
 <body>
     <header>
@@ -43,19 +44,16 @@ session_start();
                         </div>
                         </div>
                     </div>
-
                     <!-- Email input -->
                     <div data-mdb-input-init class="form-outline mb-4">
                         <input type="email" id="txtWholesalerEmail" required name="wholesalerEmail" placeholder="xyz@gmail.com" class="form-control" />
                         <label class="form-label" for="txtWholesalerEmail">Email address</label>
                     </div>
-
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-4">
                         <input type="password" id="wholesalerPassword" class="form-control" />
                         <label class="form-label" for="wholesalerPassword">Password</label>
                     </div>
-
                     <!-- Checkbox -->
                     <div class="form-check d-flex justify-content-center mb-4">
                         <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
@@ -63,25 +61,20 @@ session_start();
                         Subscribe to our newsletter
                         </label>
                     </div>
-
                     <!-- Submit button -->
                     <button data-mdb-ripple-init type="submit" name="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
-
                     <!-- Register buttons -->
                     <div class="text-center">
                         <p>or sign up with:</p>
                         <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-facebook-f"></i>
                         </button>
-
                         <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-google"></i>
                         </button>
-
                         <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-twitter"></i>
                         </button>
-
                         <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-github"></i>
                         </button>

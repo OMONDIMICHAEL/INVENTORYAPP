@@ -4,7 +4,6 @@ html, body{
     font-weight: 400;
     font-style: normal;
     font-size: 24px;
-    background-color: darkslategray;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
@@ -35,7 +34,6 @@ a:focus,
 a:hover{
     background-color: seashell;
     color: blue;
-    border-style: outset;
     border-radius: 8px;
 }
 a:active{
@@ -46,10 +44,9 @@ a:active{
     font-weight: 400;
     font-style: normal;
     padding: 5px;
-    border-style: outset;
-    background-color: plum;
     display: grid;
-    grid-template-columns: 5fr 5fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
 #mainArt{
     font-family: "Coda", sans-serif;
@@ -58,8 +55,6 @@ a:active{
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
-    border-style: outset;
-    background-color: lightsteelblue;
     display: grid;
     grid-template-columns: 2fr 5fr;
     grid-template-rows: 2fr;
@@ -100,15 +95,6 @@ a:active{
         ;
         overflow-wrap: break-word;
     }
-    .sidebarImage{
-        border-radius: 12px;
-        border: 5px solid snow;
-        height: 32px;
-        width: 32px;
-        object-fit: cover;
-        cursor: pointer;
-        margin-left: 0;
-    }
 }
 @media (min-width: 800px){
     #mainArt{
@@ -121,26 +107,14 @@ a:active{
         ;
         overflow-wrap: break-word;
     }
-    .sidebarImage{
-        border-radius: 12px;
-        border: 5px solid snow;
-        height: 62px;
-        width: 62px;
-        object-fit: cover;
-        cursor: pointer;
-        margin-left: 0;
-    }
 }
 #supplierProductSecGrid{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-image: url("../IMAGES/skyStars.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: seashell;
     padding: 5px;
-    border-style: outset;
     min-height: 100px;
     width: 95%;
     display: grid;
@@ -152,18 +126,14 @@ a:active{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: cadetblue;
     padding: 6px;
     border-radius: 8px;
-    border-style: outset;
 }
 #footerArt{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
     padding: 5px;
-    border-style: outset;
-    background-color: rosybrown;
     display: grid;
     grid-template-columns: 5fr 5fr 5fr;
     font-size: 18px;
@@ -175,9 +145,6 @@ a:active{
     cursor: pointer;
     font-weight: bolder;
     font-size: 18px;
-    background-color: inherit;
-    color: blue;
-    border: 1px solid sienna;
     border-radius: 3px;
     padding: 8px;
     margin-bottom: 3px;
@@ -202,31 +169,6 @@ a:active{
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
-}
-.submitBtn{
-    padding: 8px;
-    font-weight: bolder;
-    font-family: "Playfair Display", sans-serif;
-    font-style: normal;
-    cursor: pointer;
-    font-size: 22px;
-    background-color: sienna;
-    color: azure;
-    border-style: outset;
-    border-radius: 5px;
-}
-.supplierBtns{
-    padding: 8px;
-    font-weight: bolder;
-    font-family: "Playfair Display", sans-serif;
-    font-style: normal;
-    cursor: pointer;
-    font-size: 22px;
-    background-color: cornflowerblue;
-    color: cornsilk;
-    border-style: outset;
-    border-radius: 5px;
-    margin-bottom: 5px;
 }
 #addSupplierSec{
     font-family: "Coda", sans-serif;
@@ -278,48 +220,40 @@ a:active{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: cadetblue;
     padding: 6px;
     border-radius: 8px;
-    border-style: outset;
 }
 #secGridItemSpan{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: snow;
 }
 #secGridEnableReorderSpan{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
     float: right;
-/*    display: none;*/
 }
 #secGridDisableReorderSpan{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
     float: right;
-/*    display: none;*/
 }
 #sessionIdSec{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
     overflow-wrap: break-word;
-    color: snow;
     float: right;
 }
 #selectSupplierProfile{
-    background-color: springgreen;
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
     cursor: pointer;
     padding: 10px;
     border-radius: 7px;
-    border-style: outset;
 }
 #supplierProfileImage{
     border-radius: 32px;
@@ -328,6 +262,10 @@ a:active{
     border: 50px;
     object-fit: cover;
     cursor: pointer;
+    -webkit-border-radius: 32px;
+    -moz-border-radius: 32px;
+    -ms-border-radius: 32px;
+    -o-border-radius: 32px;
 }
 #closeMenuIcon{
     width: fit-content;
@@ -349,20 +287,6 @@ a:active{
 #tableHr{
     background-color: tomato;
     height: 3px;
-}
-#downloadInvoiceBtn{
-    padding: 8px;
-    font-weight: bolder;
-    font-family: "Playfair Display", sans-serif;
-    font-style: normal;
-    cursor: pointer;
-    font-size: 22px;
-    background-color: midnightblue;
-    color: mintcream;
-    border-style: outset;
-    border-radius: 5px;
-    border: 1px solid mediumblue;
-    margin-bottom: 5px;
 }
 .container{
     position: absolute;
@@ -407,6 +331,10 @@ a:active{
     background: white;
     transform: rotate(45deg);
     transition: all 0.5s;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
 }
 .container .search::after{
     content: "";
@@ -415,12 +343,16 @@ a:active{
     top: -5px;
     right: 0;
     bottom: 0;
-    left: -5px; 
+    left: -5px;
     width: 25px;
     height: 25px;
     border-radius: 50%;
     border: 2px solid white;
     transition: all 0.5s;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 .container input{
     font-family: monospace;
@@ -473,30 +405,20 @@ a:active{
     background: white;
     border-radius: 0%;
     transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
 }
 .container input::placeholder{
     color: black;
     opacity: 0.5;
     font-weight: bolder;
 }
-/* #searchBtn{
-    float: right;
-    font-family: monospace;
-    font-weight: bold;
-    font-size: 28px;
-    color: cornsilk;
-    background-color: cadetblue;
-    padding: 0px 20px;
-    border-radius: 8px;
-    border-style: outset;
-    border: 3px solid black;
-    cursor: pointer;
-} */
 #searchSupplierProductSec{
     padding: 6px;
     width: fit-content;
     border-style: outset;
-    background-color: cadetblue;
     height: fit-content;
     border-radius: 8px;
     font-family: "Coda", sans-serif;
@@ -519,9 +441,6 @@ a:active{
     font-style: normal;
     font-weight: bolder;
     letter-spacing: 3px;
-    border-style: outset;
     border-radius: 8px;
-    background-color: seashell;
     width: 95%;
-    color: #151515;
 }

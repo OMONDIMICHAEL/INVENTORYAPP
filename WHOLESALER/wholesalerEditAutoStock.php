@@ -22,13 +22,14 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="mikemike3662@gmail.com">
     <meta name="description" content="inventory web app">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
+    <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
+    <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
     <title>Inventory App</title>
 </head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
-<link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
 <body>
     <?php require("../HEADER/wholesalerHeader.php"); ?>
     <main>
@@ -54,15 +55,67 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
                 </section>
             </article>
             <article id="mainArt2">
-                <form method="post" action="../ACTIONS/wholesalerEditAutoStock.php">
-                    <fieldset>
-                        <legend></legend>
-                        <!-- Accent-colored raised button with ripple -->
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                            Button
-                        </button>
+                <form>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row mb-4">
+                        <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="form6Example1" class="form-control" />
+                            <label class="form-label" for="form6Example1">First name</label>
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" id="form6Example2" class="form-control" />
+                            <label class="form-label" for="form6Example2">Last name</label>
+                        </div>
+                        </div>
+                    </div>
 
-                    </fieldset>
+                    <!-- Text input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="form6Example3" class="form-control" />
+                        <label class="form-label" for="form6Example3">Company name</label>
+                    </div>
+
+                    <!-- Text input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="form6Example4" class="form-control" />
+                        <label class="form-label" for="form6Example4">Address</label>
+                    </div>
+
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" id="form6Example5" class="form-control" />
+                        <label class="form-label" for="form6Example5">Email</label>
+                    </div>
+
+                    <!-- Number input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="number" id="form6Example6" class="form-control" />
+                        <label class="form-label" for="form6Example6">Phone</label>
+                    </div>
+
+                    <!-- Message input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                        <label class="form-label" for="form6Example7">Additional information</label>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex justify-content-center mb-4">
+                        <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        value=""
+                        id="form6Example8"
+                        checked
+                        />
+                        <label class="form-check-label" for="form6Example8"> Create an account? </label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">EDIT!</button>
                 </form>
             </article>
         </article>
@@ -72,12 +125,14 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
                 <section id="sessionIdSec"><?php echo $wholesalerLoginId; ?></section>
         </article>
     <script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = '../CSS/inventoryIndex.css';
         document.head.appendChild(link);
     </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <script src="../JAVASCRIPT/inventoryIndex.js" defer="true"></script>
 </body>
 </html>

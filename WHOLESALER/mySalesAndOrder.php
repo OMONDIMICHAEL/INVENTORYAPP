@@ -23,39 +23,39 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="mikemike3662@gmail.com">
     <meta name="description" content="inventory web app">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
+    <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
+    <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
     <title>Inventory App</title>
 </head>
-<link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
-    <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
 <body>
     <?php require("../HEADER/wholesalerHeader.php"); ?>
     <main>
         <article id="mainArt">
             <article id="mainArt1">
                 <section id="mainArtSec1">
-                    <button class="sidebarBtn" id="inventoryTrackingBtn">
-                        <img src="../IMAGES/inventoryTracking.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
+                    <button class="btn btn-info" data-mdb-ripple-init id="inventoryTrackingBtn">
                         Inventory tracking.
                     </button>
-                    <button class="sidebarBtn" id="wholesalerSalesAndOrderBtn">
-                        <img src="../IMAGES/salesAndOrder.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
+                    <button class="btn btn-info" data-mdb-ripple-init id="wholesalerSalesAndOrderBtn">
                         Sales and Order Management.
                     </button>
-                    <button class="sidebarBtn" id="reportingAndAnalyticsBtn">
-                        <img src="../IMAGES/reportingAndAnalytics.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
+                    <button class="btn btn-info" data-mdb-ripple-init id="reportingAndAnalyticsBtn">
                         Reporting and Analytics.
                     </button>
-                    <button class="sidebarBtn" id="accountingSystemBtn">
-                        <img src="../IMAGES/accountingSystem.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
+                    <button class="btn btn-info" data-mdb-ripple-init id="accountingSystemBtn">
                         Accounting System.
                     </button>
                 </section>
             </article>
             <article id="mainArt2">
                 <section id="mainArtSec2">
-                    <button class="supplierBtns" id="mySalesBtn">MY SALES.</button>
-                    <button class="supplierBtns" id="makeOrderBtn">ORDER PRODUCT.</button>
-                    <button class="supplierBtns" id="myOrdersBtn">MY ORDERS.</button>
+                    <button id="mySalesBtn" class="btn btn-primary" data-mdb-ripple-init>MY SALES.</button>
+                    <button id="makeOrderBtn" class="btn btn-primary" data-mdb-ripple-init>ORDER PRODUCT.</button>
+                    <button id="myOrdersBtn" class="btn btn-primary" data-mdb-ripple-init>MY ORDERS.</button>
                 </section>
                 <section id="mySalesSec">
                     sales.
@@ -77,7 +77,7 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
                             foreach ($orders->fetchAll(PDO::FETCH_ASSOC) as $gottenProduct) {
                                 echo"
                                     <section id='makeOrderSecGridItems'>
-                                        <span id='secGridOrderSpan'>"?><a href="orderProduct.php?productId=<?php echo $gottenProduct['productId'];?>">ORDER.</a><?php echo "</span><br>
+                                        <span class='btn btn-link' data-mdb-ripple-init data-mdb-ripple-color='dark' id='secGridOrderSpan'>"?><a href="orderProduct.php?productId=<?php echo $gottenProduct['productId'];?>">ORDER.</a><?php echo "</span><br>
                                         <span id='secGridItemSpan'>ID:</span> ".$gottenProduct['productId']."<br>
                                         <span id='secGridItemSpan'>Product:</span> ".$gottenProduct['productName']."<br>
                                         <span id='secGridItemSpan'>Quantity Available:</span> ".$gottenProduct['productQuantity']."<br>
@@ -147,6 +147,9 @@ $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
         link.href = '../CSS/inventoryIndex.css';
         document.head.appendChild(link);
     </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <script src="../JAVASCRIPT/inventoryIndex.js" defer="true"></script>
 </body>
 </html>

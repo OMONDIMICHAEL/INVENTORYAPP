@@ -1,7 +1,7 @@
 
-<!-- <header> -->
-        <!-- <article id="headerArt">
-            <section  id="headerSec1">
+<header>
+         <article id="headerArt">
+            <!-- <section  id="headerSec1">
                 <abbr title="Inventory Management System">IMS</abbr> WHOLESALER.
                 <section id="closeMenuIcon">
                     &#215;
@@ -25,15 +25,7 @@
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
-    <button
-      data-mdb-collapse-init
-      class="navbar-toggler"
-      type="button"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
 
@@ -138,5 +130,5 @@
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
-        <!-- </article> -->
-    <!-- </header> -->
+        </article>
+    </header>

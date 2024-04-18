@@ -9,12 +9,13 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="mikemike3662@gmail.com">
     <meta name="description" content="inventory web app">
-    <title>inventory app</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
     <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
     <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
+    <title>Inventory App</title>
 </head>
 <body>
     <header>
@@ -33,13 +34,11 @@ session_start();
                         <input type="email" required name="wholesalerEmail" id="txtEmail" placeholder="xyz@gmail.com" class="form-control" />
                         <label class="form-label" for="txtEmail">wholesaler Email:</label>
                     </div>
-
                     <!-- Password input -->
                     <div data-mdb-input-init class="form-outline mb-4">
                         <input type="password" id="txtPassword" required name="wholesalerPassword" class="form-control" />
                         <label class="form-label" for="txtPassword">wholesaler Password</label>
                     </div>
-
                     <!-- 2 column grid layout for inline styling -->
                     <div class="row mb-4">
                         <div class="col d-flex justify-content-center">
@@ -49,16 +48,13 @@ session_start();
                             <label class="form-check-label" for="form2Example34"> Remember me </label>
                         </div>
                         </div>
-
                         <div class="col">
                         <!-- Simple link -->
                         <a href="#!">Forgot password?</a>
                         </div>
                     </div>
-
                     <!-- Submit button -->
                     <button data-mdb-ripple-init type="submit" name="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
                     <!-- Register buttons -->
                     <div class="text-center">
                         <p>Not a member? <a href="wholesalerSignup.php">Register</a></p>
@@ -66,23 +62,17 @@ session_start();
                         <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-facebook-f"></i>
                         </button>
-
                         <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-google"></i>
                         </button>
-
                         <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-twitter"></i>
                         </button>
-
                         <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-github"></i>
                         </button>
                     </div>
                 </form>
-            </section><br>
-            <section id = "registerBtnSec">
-                <!-- <button id="wholesalerRegNavBtn"><u>Don't have an account? Register.</u></button> -->
             </section>
         </article>
     </main>
