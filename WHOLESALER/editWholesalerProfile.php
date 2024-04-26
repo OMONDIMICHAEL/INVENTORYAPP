@@ -59,48 +59,55 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
                         <article id="mainArt2">
                             <section id="mainArtSec2">
                                 <?php
-                                $productId = $_GET['productId'];
-                                $checkProductDetails = $conn->prepare("SELECT * FROM inventory.supplierProduct WHERE supplierProduct.productId = :productId");
-                                $checkProductDetails->bindParam(':productId', $productId, PDO::PARAM_INT);
-                                $checkProductDetails->execute();
-                                foreach($checkProductDetails->fetchAll(PDO::FETCH_ASSOC) as $productDetails)
+                                $wholesalerNum = $_GET['wholesalerNum'];
+                                $checkWholesalerProfile = $conn->prepare("SELECT * FROM inventory.wholesalersRegistered WHERE wholesalersRegistered.wholesalerNum = :wholesalerNum");
+                                $checkWholesalerProfile->bindParam(':wholesalerNum', $wholesalerNum, PDO::PARAM_INT);
+                                $checkWholesalerProfile->execute();
+                                foreach($checkWholesalerProfile->fetchAll(PDO::FETCH_ASSOC) as $wholesalerProfileDetails)
                                 ?>
-                                <form action="../ACTIONS/orderProduct.php?productId=<?php echo $productId ?>" method="post">
-                                    <div id="productId" class="form-text">
-                                        The product ID.
+                                <form action="../ACTIONS/editWholesalerProfile.php?wholesalerNum=<?php echo $wholesalerNum ?>" method="post" enctype="multipart/form-data">
+                                    <div class="card mb-3">
+                                        <div id="wholesalerName" class="form-text mt-3">
+                                            Name.
+                                        </div>
+                                        <div class="form-outline  mb-3" data-mdb-input-init>
+                                            <input type="text" id="wholesalerName" class="form-control" aria-describedby="wholesalerName" name="wholesalerName" required value="<?php echo $wholesalerProfileDetails['wholesalerName']; ?>" />
+                                        </div>
                                     </div>
-                                    <div class="form-outline mb-3" data-mdb-input-init>
-                                        <input class="form-control" id="productId" type="text" placeholder="Disabled input"
-                                            aria-label="disabled input example" disabled name="productId" value="<?php echo $productDetails['productId'] ?>"/>
+                                    <div class="card mb-3">
+                                        <div id="wholesalerEmail" class="form-text mt-3">
+                                            Email.
+                                        </div>
+                                        <div class="form-outline  mb-3" data-mdb-input-init>
+                                            <input type="email" id="wholesalerEmail" class="form-control" aria-describedby="wholesalerEmail" name="wholesalerEmail" required value="<?php echo $wholesalerProfileDetails['wholesalerEmail']; ?>" />
+                                        </div>
                                     </div>
-                                    <div id="productName" class="form-text">
-                                        The product Name.
+                                    <div class="card mb-3">
+                                        <div id="wholesalerPhone" class="form-text mt-3">
+                                            Phone.
+                                        </div>
+                                        <div class="form-outline  mb-3" data-mdb-input-init>
+                                            <input type="text" id="wholesalerPhone" class="form-control" aria-describedby="wholesalerPhone" name="wholesalerPhone" required value="<?php echo $wholesalerProfileDetails['wholesalerPhone']; ?>" />
+                                        </div>
                                     </div>
-                                    <div class="form-outline mb-3" data-mdb-input-init>
-                                        <input type="text" name="productName" value="<?php echo $productDetails['productName']; ?>" class="form-control" id="productName" aria-label="disabled input example" disabled />
+                                    <div class="card mb-3">
+                                        <div id="wholesalerPassword" class="form-text mt-3">
+                                            Password.
+                                        </div>
+                                        <div class="form-outline  mb-3" data-mdb-input-init>
+                                            <input type="text" id="wholesalerPassword" class="form-control" aria-describedby="wholesalerPassword" name="wholesalerPassword" required value="<?php echo $wholesalerProfileDetails['wholesalerPassword']; ?>" />
+                                        </div>
                                     </div>
-                                    <div id="quantityOrdering" class="form-text">
-                                        Quantity you want to order.
-                                    </div>
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <input type="number" id="quantityOrdering" class="form-control" aria-describedby="quantityOrdering" name="quantityOrdering" required />
-                                        <label class="form-label" for="quantityOrdering">Enter number</label>
-                                    </div>
-                                    <div id="quantityDescription" class="form-text">
-                                        Describe the amount you want to order.
-                                    </div>
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <input type="text" id="quantityDescription" class="form-control" aria-describedby="quantityDescription" name="quantityDescription" required />
-                                        <label class="form-label" for="quantityDescription">Describe the order</label>
-                                    </div>
-                                    <div id="supplierName" class="form-text">
-                                        Supplier Name.
-                                    </div>
-                                    <div class="form-outline mb-3" data-mdb-input-init>
-                                        <input class="form-control" id="supplierName" type="text"
-                                            aria-label="disabled input example" disabled name="supplierName" value="<?php echo $productDetails['supplierName'] ?>"/>
-                                    </div>
-                                    <button type="submit" name="submit" class="btn btn-success" data-mdb-ripple-init>Order Product.</button>
+                                    <!-- <div class="card mb-3">
+                                        <div id="wholesalerLogoo" class="form-text">
+                                            Logo.
+                                        </div>
+                                        <div class="form-outline" data-mdb-input-init>
+                                            <input type="file" id="wholesalerLogoo" class="form-control" aria-describedby="wholesalerLogo" name="wholesalerLogo" required />
+                                        </div>
+                                    </div> -->
+
+                                    <button type="submit" name="submit" style="float:right;" class="btn btn-danger" data-mdb-ripple-init>SAVE UPDATE!</button>
                                 </form>
                             </section>
                         </article>

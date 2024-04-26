@@ -17,12 +17,13 @@ const supplierSalesBtn = document.getElementById("supplierSalesBtn");
 const supplierAddProductBtn = document.getElementById("supplierAddProductBtn");
 const confirmOrderBtn = document.getElementById("confirmOrderBtn");
 const supplierOrderInvoiceSec = document.getElementById("supplierOrderInvoiceSec");
+const supplierSalesSec = document.getElementById("supplierSalesSec");
 const supplierInventoryTrackingBtn = document.getElementById("supplierInventoryTrackingBtn");
 const downloadInvoiceBtn = document.getElementById("downloadInvoiceBtn");
-const closeMenuIcon = document.getElementById("closeMenuIcon");
-const mainArtSec1 = document.getElementById("mainArtSec1");
-const mainArt1 = document.getElementById("mainArt1");
-const openMenuIcon = document.getElementById("openMenuIcon");
+// const closeMenuIcon = document.getElementById("closeMenuIcon");
+// const mainArtSec1 = document.getElementById("mainArtSec1");
+// const mainArt1 = document.getElementById("mainArt1");
+// const openMenuIcon = document.getElementById("openMenuIcon");
 
 document.addEventListener('DOMContentLoaded', function() {
         if (wholesalerSalesAndOrderBtn) {
@@ -79,11 +80,19 @@ document.addEventListener('DOMContentLoaded', function() {
         supplierAddProductBtn.addEventListener("click", function () {
         addSupplierProductSec.style.display="block"
         supplierOrderInvoiceSec.style.display='none'
+        supplierSalesSec.style.display='none';
         });}
         if (confirmOrderBtn) {
         confirmOrderBtn.addEventListener("click", function () {
         addSupplierProductSec.style.display="none";
+        supplierSalesSec.style.display='none';
         supplierOrderInvoiceSec.style.display='block';
+        });}
+        if (supplierSalesBtn) {
+        supplierSalesBtn.addEventListener("click", function () {
+        addSupplierProductSec.style.display="none";
+        supplierOrderInvoiceSec.style.display='none';
+        supplierSalesSec.style.display='block';
         });}
         if (downloadInvoiceBtn) {
         downloadInvoiceBtn.addEventListener("click", function(){
@@ -93,29 +102,38 @@ document.addEventListener('DOMContentLoaded', function() {
         newWin.print();
         newWin.close();
         });}
-        if (closeMenuIcon) {
-        closeMenuIcon.addEventListener("click", function(){
-        mainArt1.style.display = "none";
-        closeMenuIcon.style.display = "none";
-        openMenuIcon.style.display = "block";
-        });}
-        if (openMenuIcon) {
-        openMenuIcon.addEventListener("click", function(){
-        mainArt1.style.display = "block";
-        closeMenuIcon.style.display = "block";
-        openMenuIcon.style.display = "none";
-        });}
+        // if (closeMenuIcon) {
+        // closeMenuIcon.addEventListener("click", function(){
+        // mainArt1.style.display = "none";
+        // closeMenuIcon.style.display = "none";
+        // openMenuIcon.style.display = "block";
+        // });}
+        // if (openMenuIcon) {
+        // openMenuIcon.addEventListener("click", function(){
+        // mainArt1.style.display = "block";
+        // closeMenuIcon.style.display = "block";
+        // openMenuIcon.style.display = "none";
+        // });}
 });
-function myProfileOptClick(params) {
-    console.log("opt1clk")
-}
-function logoutProfileOptClick(params) {
-    location.href = "../SUPPLIER/supplierLogout.php"
-}
-function editProfileOptClick(params) {
-    location.href = "editSupplierProfile.php";
-    console.log("rt");
-}
-function logoutWholesalerOptClick(params) {
-    location.href = "../WHOLESALER/wholesalerLogout.php"
-}
+function toggleDarkMode() {
+    const bodyElement = document.body;
+    bodyElement.classList.toggle("dark-mode");
+    
+    // Save the current mode to local storage
+    if(bodyElement.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  }
+  
+  // Check for saved user preference, if any, on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    
+    // Apply the saved theme
+    if(savedTheme === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+  });
+//   ///////////////////////////////

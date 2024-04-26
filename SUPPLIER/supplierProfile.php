@@ -13,13 +13,14 @@ if (!isset($_SESSION['supplierId'])) {
     $conn = null;
 }
 $supplierDetails = loginDetails($conn);
-$loginId = $supplierDetails['supplierId'];
+$supplierLoginId = $supplierDetails['supplierId'];
 $supplierName = $supplierDetails['supplierName'];
 $supplierEmail = $supplierDetails['supplierEmail'];
 $supplierPhone = $supplierDetails['supplierPhone'];
 $supplierLogo = $supplierDetails['supplierLogo'];
 $supplierLogoPath = $supplierDetails['supplierLogoPath'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,53 +47,52 @@ $supplierLogoPath = $supplierDetails['supplierLogoPath'];
         <!-- Section: Links  -->
         <article class="">
             <div class="container-fluid text-center text-md-start mt-5">
-            <!-- Grid row -->
+                <!-- Grid row -->
                 <div class="row mt-3">
                     <!-- side bar grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-1">
                         <?php require("../SIDEBAR/supplierSideBar.php"); ?>
                     </div>
-                        <!-- side bar grid column -->
-                        <!-- body grid column -->
-                        <div class="col-md-8 col-lg-8 col-xl-8 mx-auto mb-4" id="bodyGridDiv">
-                            <div class="container-fluid text-center text-md-start mt-5">
-                                <div class="" id="supplierProductSecGrid">
-                                    <?php
-                                    $getSupplierProducts = $conn->prepare("SELECT * FROM inventory.supplierProduct WHERE supplierProduct.supplierName = :supplierName");
-                                    $getSupplierProducts->bindParam(':supplierName', $supplierName);
-                                    $getSupplierProducts->execute();
-                                    $getSupplierProducts->rowCount();
-                                        foreach ($getSupplierProducts->fetchAll(PDO::FETCH_ASSOC) as $supplierProducts) {
-                                            echo"
-                                                <div class='card'>
-                                                    <div class='bg-image hover-overlay' data-mdb-ripple-init id='supplierProductImage' data-mdb-ripple-color='light'>
-                                                        "?>
-                                                        <img src="<?php echo $supplierProducts['productImagePath']; ?>" alt="<?php echo $supplierProducts['productImage']; ?>" class="img-fluid"/>
-                                                        <?php echo "
-                                                        <a href='supplierProductDetails.php?productId="?><?php echo $supplierProducts['productId'];?><?php echo "'>
-                                                            <div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div>
-                                                        </a>
-                                                    </div>
-                                                    <div class='card-body'>
-                                                        <span class='card-text' id='secGridItemSpan'></span> ".$supplierProducts['productName']."<br>
-                                                        <span class='card-text' id='secGridItemSpan'>Available:</span> ".$supplierProducts['productQuantity']."<br>
-                                                        <span class='card-title' id='secGridEnableReorderSpan'>"?><a href="supplierProductDetails.php?productId=<?php echo $supplierProducts['productId'];?>">EXPLORE.</a><?php echo "</span>
-                                                    </div>
-                                                </div>
-                                            ";
-                                        }
-                                    ?>
+                    <!-- side bar grid column -->
+                    <!-- body grid column -->
+                    <div class="col-md-8 col-lg-8 col-xl-8 mx-auto mb-4" id="bodyGridDiv">
+                        <article id="mainArt2">
+                            <section id="mainArtSec2">
+                                <?php
+                                $loginId = $_GET['loginId'];
+                                $checkSupplierProfile = $conn->prepare("SELECT * FROM inventory.suppliersRegistered WHERE suppliersRegistered.supplierId = :loginId");
+                                $checkSupplierProfile->bindParam(':loginId', $loginId, PDO::PARAM_STR);
+                                $checkSupplierProfile->execute();
+                                foreach($checkSupplierProfile->fetchAll(PDO::FETCH_ASSOC) as $supplierProfileDetails)
+                                ?>
+                                <span style="float:right;"><a href="editSupplierProfile.php?supplierNo=<?php echo $supplierProfileDetails['supplierNo'] ?>">EDIT PROFILE.</a></span><br>
+                                <div class="card mb-3">
+                                    <span>Name.</span>
+                                    <p><?php echo $supplierProfileDetails['supplierName']; ?></p>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- body grid column -->
-                        <!-- right bar grid column -->
+                                <div class="card mb-3">
+                                    <span>Email.</span>
+                                    <p><?php echo $supplierProfileDetails['supplierEmail']; ?></p>
+                                </div>
+                                <div class="card mb-3">
+                                    <span>Phone.</span>
+                                    <p><?php echo $supplierProfileDetails['supplierPhone']; ?></p>
+                                </div>
+                                <div class="card mb-3">
+                                    <span>Password.</span>
+                                    <p><?php echo $supplierProfileDetails['supplierPassword']; ?></p>
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                    <!-- body grid column -->
+                    <!-- right bar grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <?php require("../RIGHTBAR/supplierRightBar.php"); ?>
+                        <?php require("../RIGHTBAR/wholesalerRightBar.php"); ?>
                     </div>
                     <!-- right bar grid column -->
                 </div>
-                <!-- Grid row -->
+            <!-- Grid row -->
             </div>
         </article>
     </main>

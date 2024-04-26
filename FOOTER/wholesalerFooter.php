@@ -1,14 +1,127 @@
 
-<footer>
-        <article id="footerArt">
-            <section><center>
-                &copy; 2024.
-            </center></section>
-            <section><center>
-            &reg; All Rights Reserved.
-            </center></section>
-            <section><center>
-                Helpline. <a href="mailto:mikemike3662@gmail.com">mikemike3662@gmail.com</a>
-            </center></section>
-        </article>
-    </footer>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+  <!-- Section: Social media -->
+  <div class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="https://web.facebook.com/profile.php?id=61558606354270" target="_blank" rel="noopener noreferrer" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/Mk16080936" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/OMONDIMICHAEL?tab=repositories" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </div>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container-fluid text-center text-md-start mt-1">
+      <!-- Grid row -->
+      <div class="row mt-1">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-1">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-1">
+          <a href="#">
+          <i class="fas fa-warehouse"></i>
+          </a>IMS APPLICATION
+          </h6>
+          <p>
+            Terms And Conditions.
+          </p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            <a href="mailto:<?php echo $wholesalerEmail; ?>"><?php echo $wholesalerEmail; ?></a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Marketing.</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Quick books</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Loaning</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Trainings</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> Kisumu, Ksm 41, KENYA</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            <a href="mailto:mikemike3662@gmail.com">mikemike3662@gmail.com</a>
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 254 762 307 016</p>
+          <p><i class="fas fa-print me-3"></i> + 254 791 716 367</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <a class="text-reset fw-bold" href="#!">My IMS App</a>
+  </div>
+  <!-- Copyright -->
+</footer>

@@ -7,15 +7,20 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="mikemike3662@gmail.com">
-    <meta name="description" content="inventory web app">
-    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <meta name="title" content="CIMS: Manage your inventory, find customers online, Buy products online">
+    <meta name="description" content="CIMS is an inventory management system. Use it for tracking your inventory aas a wholesaler or retailer and finding customers too.It automate tasks for you like making an order for a wholesaler to the retailer if his/her products fall below a preset value. It also generates an invoice for the retailer. Customers can buy buy from different wholesalers and wholesalers can buy from different customers suppliers. It analyses the market trend for users too and calculates profit or loss, all in one place.">
+    <meta name="keywords" content="cims,inventory,inventory management,inventory management system,inventory management application,retail online,wholesale online,inventory management website,cims login">
+    <meta property="og:description" content="An inventory management system that automates your daily tasks">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta property="og:title" content="CIMS">
+    <meta property="og:image" content="../IMAGES/title.jpg">
+    <meta property="og:url" content="https://cims.auto.com">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
-    <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
     <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
-    <title>Inventory App</title>
+    <title>CIMS</title>
+    <link rel="stylesheet" href="../CSS/supplierSignup.css">
 </head>
 <body>
     <header>
@@ -43,7 +48,7 @@ session_start();
                     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                         <form action="../ACTIONS/supplierLogin.php" method="post">
                             <div class="text-center mb-3">
-                                <p>Sign in with:</p>
+                                <p><span style="color:black;">Sign in with:</span></p>
                                 <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                                     <i class="fab fa-facebook-f"></i>
                                 </button>
@@ -57,11 +62,11 @@ session_start();
                                     <i class="fab fa-github"></i>
                                 </button>
                             </div>
-                            <p class="text-center">or:</p>
+                            <p class="text-center"><span style="color:black;">or:</span></p>
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
                                 <input type="email" id="loginName" required name="supplierEmail" class="form-control" />
-                                <label class="form-label" for="loginName">Email or Username</label>
+                                <label class="form-label" for="loginName" autocomplete="on" autofocus >Email or Username</label>
                             </div>
 
                             <!-- Password input -->
@@ -75,7 +80,7 @@ session_start();
                                     <!-- Checkbox -->
                                     <div class="form-check mb-3 mb-md-0">
                                         <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked/>
-                                        <label class="form-check-label" for="loginCheck"> Remember me </label>
+                                        <label class="form-check-label" for="loginCheck"> <span style="color:black;">Remember me</span> </label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-center">
@@ -92,9 +97,9 @@ session_start();
                         </form>
                     </div>
                     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                        <form action="../ACTIONS/supplierSignup.php" method="post">
+                        <form action="../ACTIONS/supplierSignup.php" method="post" enctype="multipart/form-data">
                             <div class="text-center mb-3">
-                                <p>Sign up with:</p>
+                                <p><span style="color:black;">Sign up with:</span></p>
                                 <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
                                     <i class="fab fa-facebook-f"></i>
                                 </button>
@@ -117,16 +122,16 @@ session_start();
                             </div>
                             <!-- Username input -->
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="text" id="registerUsername" class="form-control" name="supplierPhone" required />
+                                <input type="number" id="registerUsername" class="form-control" name="supplierPhone" data-mdb-showcounter="true" maxlength="10" required />
                                 <label class="form-label" for="registerUsername">Phone</label>
+                                <div class="form-helper"></div>
                             </div>
-                            <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
                                 <input type="email" id="registerEmail" class="form-control" name="supplierEmail" required />
                                 <label class="form-label" for="registerEmail">Email</label>
                             </div>
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <textarea id="paymentMethods" class="form-control" name="paymentMethods" required ></textarea>
+                            <div data-mdb-input-init class="form-outline">
+                                <textarea id="paymentMethods" class="form-control mb-4" name="paymentMethods" required ></textarea>
                                 <label class="form-label" for="paymentMethods">Your prefered payment methods</label>
                             </div>
                             <div data-mdb-input-init class="form-outline mb-4">
@@ -144,11 +149,17 @@ session_start();
                                 <input type="password" id="registerRepeatPassword" class="form-control" name="supplierConfirmPassword" required />
                                 <label class="form-label" for="registerRepeatPassword">Repeat password</label>
                             </div>
+                            <div id="supplierLogo" class="form-text">
+                                Supply logo/profile picture.
+                            </div>
+                            <div data-mdb-input-init class="form-outline mb-4">
+                                <input type="file" id="supplierLogo" class="form-control" name="supplierLogo" required />
+                            </div>
                             <!-- Checkbox -->
                             <div class="form-check d-flex justify-content-center mb-4">
                                 <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked  aria-describedby="registerCheckHelpText" />
                                 <label class="form-check-label" for="registerCheck">
-                                I have read and agree to the terms
+                                <span style="color:black;">I have read and agree to the terms</span>
                                 </label>
                             </div>
                             <!-- Submit button -->

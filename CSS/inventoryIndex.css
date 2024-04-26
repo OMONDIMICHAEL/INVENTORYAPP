@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bonbon&family=Bungee+Shade&family=Bungee+Spice&family=Coda:wght@400;800&family=Codystar:wght@300;400&family=Ewert&family=Faster+One&family=Honk&family=Irish+Grover&family=Kablammo&family=Nabla&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bonbon&family=Bungee+Shade&family=Bungee+Spice&family=Coda:wght@400;800&family=Codystar:wght@300;400&family=Ewert&family=Faster+One&family=Honk&family=Irish+Grover&family=Kablammo&family=Nabla&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik+Moonrocks&family=Roboto:300,400,500,700&display=swap');
+* {
+  box-sizing: border-box;
+}
 html, body{
     font-family: "Coda", sans-serif;
     font-weight: 400;
@@ -7,13 +10,23 @@ html, body{
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    background-color: white;
+    color: black;
 }
+.dark-mode {
+background-color: black;
+color: white;
+}
+  
 header{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    top: 0;
-    position: sticky;
+     top: 0; 
+     position: sticky; 
+     z-index: 99;
+/*     margin-top: 0px;*/
+background-color: inherit;
 }
 a{
     font-family: "Coda", sans-serif;
@@ -40,14 +53,14 @@ a:active{
     color: red;
 }
 #headerArt{
-    font-family: "Coda", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
     padding: 5px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-}
+}/*
 #mainArt{
     font-family: "Coda", sans-serif;
     font-weight: 400;
@@ -56,10 +69,10 @@ a:active{
     margin-bottom: 5px;
     padding: 5px;
     display: grid;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 2fr 5fr 2fr;
     grid-template-rows: 2fr;
     grid-template-areas: 
-        "sidebar content"
+        "sidebar content rightbar"
     ;
 }
 #mainArt1{
@@ -71,72 +84,115 @@ a:active{
     padding: 8px;
     overflow: scroll;
 }
-#mainArt2{
-    font-family: "Coda", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    grid-area: content;
-    margin-top: 5px;
-    padding: 8px;
-    overflow: scroll;
-    height:100vh;
-    overflow-y: scroll;
-}
-@media (min-width: 300px){
-    #mainArt{
-        font-family: "Coda", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        grid-template-columns: auto 5px;
-        grid-template-rows: auto auto;
-        grid-template-areas: 
-        "sidebar"
-        "content"
-        ;
-        overflow-wrap: break-word;
-    }
-}
 @media (min-width: 800px){
     #mainArt{
         font-family: "Coda", sans-serif;
         font-weight: 400;
         font-style: normal;
-        grid-template-columns: minmax(150px, 200px) 5fr;
+        grid-template-columns: minmax(150px, 200px) 5fr minmax(150px, 200px);
         grid-template-areas: 
-        "sidebar content"
+        "sidebar content rightbar"
         ;
         overflow-wrap: break-word;
     }
+    #mainArt1{
+        display: block;
+    }
+    #mainArt3{
+        display: block;
+    }
+}*/
+#wholesalerLogo{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+#supplierLogo{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#wholesalerProductImage img{
+    height: 100px;
+    object-fit: cover;
+    float: left;
+}
+#supplierProductImage img{
+    height: 100px;
+    object-fit: cover;
+    float: left;
+}
+#wholesalerProductImageDetails img{
+    height: 500px;
+    object-fit: cover;
+    float: left;
+}
+#supplierProductImageDetails img{
+    height: 500px;
+    object-fit: cover;
+    float: left;
+}
+#productDetailSec{
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+@media only screen and (min-width: 1024px) {
+    #sidebar {
+        display: block;
+    }
+    #rightbar{
+        display: block;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+    #rightbar{
+        display: none;
+    }
+}
+#sidebar{
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: break-word;
+}
+#rightbar{
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: break-word;
 }
 #supplierProductSecGrid{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    padding: 5px;
-    min-height: 100px;
-    width: 95%;
+/*    background-repeat: no-repeat;*/
+/*    background-attachment: fixed;*/
+/*    padding: 5px;*/
+    max-height: 100vh;
+/*    width: 95%;*/
+max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px,450px));
-    grid-template-rows: repeat(auto-fill, minmax(40px,550px));
+    grid-template-columns: repeat(auto-fill, minmax(40px,350px));
+    grid-template-rows: repeat(auto-fill, minmax(20px,fit-content));
     gap: 20px;
+    overflow-y: scroll;
 }
-#supplierProductSecGridItems{
+#supplierSalesAndOrderSec{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    padding: 6px;
-    border-radius: 8px;
-}
-#footerArt{
-    font-family: "Coda", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    padding: 5px;
-    display: grid;
-    grid-template-columns: 5fr 5fr 5fr;
-    font-size: 18px;
+    max-height: 100vh;
+    width: 95%;
+/*max-width: 100%;*/
+    overflow-y: scroll;
 }
 .sidebarBtn{
     font-family: "Playfair Display", sans-serif;
@@ -181,12 +237,23 @@ a:active{
     font-weight: 400;
     font-style: normal;
     display: none;
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 #myOrdersSec{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
     display: none;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+#downloadInvoiceSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 #addSupplierProductSec{
     font-family: "Coda", sans-serif;
@@ -208,13 +275,15 @@ a:active{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
-    min-height: 90%;
+    max-height: 100vh;
+    overflow-y: scroll;
     max-width: 100%;
     margin-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(40px,350px));
     grid-template-rows: repeat(auto-fill, minmax(20px,fit-content));
     gap: 20px;
+    overflow-y: scroll;
 }
 #makeOrderSecGridItems{
     font-family: "Coda", sans-serif;
@@ -267,18 +336,13 @@ a:active{
     -ms-border-radius: 32px;
     -o-border-radius: 32px;
 }
-#closeMenuIcon{
-    width: fit-content;
-    cursor: pointer;
-    font-size: 50px;
-}
-#openMenuIcon{
-    width: fit-content;
-    cursor: pointer;
-    display: none;
-    font-size: 50px;
-}
 #supplierOrderInvoiceSec{
+    font-family: "Coda", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+#supplierSalesSec{
     font-family: "Coda", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -444,3 +508,228 @@ a:active{
     border-radius: 8px;
     width: 95%;
 }
+figure { 
+  margin: 0; background: inherit;
+  font-family: Coda, sans-serif;
+  font-weight: 100;
+}
+.sideBarSec { 
+  width: 100%; overflow: hidden; 
+}
+/* //////////////////////supplier sidebar sliders////////////////////////////side bar slider */
+@keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+figure.slider {
+  position: relative;
+  width: 500%;
+  font-size: 0;
+  animation: 20s slidy infinite;
+  -webkit-animation: 20s slidy infinite;
+}
+figure.slider figure { 
+  width: 20%;
+  height: auto;
+  display: inline-block; 
+  position: inherit; 
+}
+figure.slider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+figure.slider figure figcaption { 
+  position: absolute; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  color: #fff; width: 100%;
+  font-size: 1rem; padding: .1rem; 
+}
+/*/////////////////////////////////////////////////////wholesaler second left slider*/
+@keyframes wholesalerSecondSlider {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+figure.wholesalerSecondSlider {
+  position: relative;
+  width: 500%;
+  font-size: 0;
+  animation: 15s wholesalerSecondSlider infinite;
+  -webkit-animation: 15s wholesalerSecondSlider infinite;
+}
+figure.wholesalerSecondSlider figure { 
+  width: 20%;
+  height: auto;
+  display: inline-block; 
+  position: inherit; 
+}
+figure.wholesalerSecondSlider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+figure.wholesalerSecondSlider figure figcaption { 
+  position: absolute; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  color: #fff; width: 100%;
+  font-size: 1rem; padding: .1rem; 
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////*/
+@keyframes supplierSecondSlider {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+figure.supplierSecondSlider {
+  position: relative;
+  width: 500%;
+  font-size: 0;
+  animation: 15s supplierSecondSlider infinite;
+  -webkit-animation: 15s supplierSecondSlider infinite;
+}
+figure.supplierSecondSlider figure { 
+  width: 20%;
+  height: auto;
+  display: inline-block; 
+  position: inherit; 
+}
+figure.supplierSecondSlider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+figure.supplierSecondSlider figure figcaption { 
+  position: absolute; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  color: #fff; width: 100%;
+  font-size: 1rem; padding: .1rem; 
+}
+/*//////////////////right bar slider///////////////////////////////right slider*/
+@keyframes rightBarSlider {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+figure.rightBarSlider {
+  position: relative;
+  width: 500%;
+  font-size: 0;
+  animation: 30s rightBarSlider infinite;
+  -webkit-animation: 30s rightBarSlider infinite;
+}
+figure.rightBarSlider figure { 
+  width: 20%;
+  height: auto;
+  display: inline-block; 
+  position: inherit; 
+}
+figure.rightBarSlider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+figure.rightBarSlider figure figcaption { 
+  position: absolute; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  color: #fff; width: 100%;
+  font-size: 1rem; padding: .1rem; 
+}
+/*//////////////////right bar slider///////////////////////////////right slider*/
+@keyframes rightBarSecondSlider {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+figure.rightBarSecondSlider {
+  position: relative;
+  width: 500%;
+  font-size: 0;
+  animation: 10s rightBarSecondSlider infinite;
+  -webkit-animation: 10s rightBarSecondSlider infinite;
+}
+figure.rightBarSecondSlider figure { 
+  width: 20%;
+  height: auto;
+  display: inline-block; 
+  position: inherit; 
+}
+figure.rightBarSecondSlider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+figure.rightBarSecondSlider figure figcaption { 
+  position: absolute; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  color: #fff; width: 100%;
+  font-size: 1rem; padding: .1rem; 
+}
+/*//////////////////////////////////////////wholsaler right second slider*/
+@keyframes wholesalerRightBarSecondSlider {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+figure.wholesalerRightBarSecondSlider {
+  position: relative;
+  width: 500%;
+  font-size: 0;
+  animation: 10s wholesalerRightBarSecondSlider infinite;
+  -webkit-animation: 10s wholesalerRightBarSecondSlider infinite;
+}
+figure.wholesalerRightBarSecondSlider figure { 
+  width: 20%;
+  height: auto;
+  display: inline-block; 
+  position: inherit; 
+}
+figure.wholesalerRightBarSecondSlider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+figure.wholesalerRightBarSecondSlider figure figcaption { 
+  position: absolute; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  color: #fff; width: 100%;
+  font-size: 1rem; padding: .1rem; 
+}
+/*/////////////////////////////////////////////////////////*/

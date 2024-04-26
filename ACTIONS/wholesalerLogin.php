@@ -8,7 +8,7 @@ if ($conn == null) {
 
     if (isset($_POST['submit'])) {
         $wholesalerEmail = filter_var($_POST['wholesalerEmail'], FILTER_SANITIZE_STRING);
-        $wholesalerPhone = filter_var($_POST['wholesalerPassword'], FILTER_SANITIZE_STRING);
+        $wholesalerPassword = filter_var($_POST['wholesalerPassword'], FILTER_SANITIZE_STRING);
 
         $logwholesaler = $conn->prepare("SELECT * FROM inventory.wholesalersRegistered WHERE wholesalersRegistered.wholesalerEmail = :wholesalerEmail");
         $logwholesaler->bindParam(':wholesalerEmail',$wholesalerEmail, PDO::PARAM_STR);

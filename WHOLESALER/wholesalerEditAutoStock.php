@@ -14,116 +14,113 @@ if (!isset($_SESSION['wholesalerId'])) {
 }
 $wholesalerDetails = loginDetails($conn);
 $wholesalerLoginId = $wholesalerDetails['wholesalerId'];
+$wholesalerName = $wholesalerDetails['wholesalerName'];
+$wholesalerEmail = $wholesalerDetails['wholesalerEmail'];
+$wholesalerPhone = $wholesalerDetails['wholesalerPhone'];
+$wholesalerLogo = $wholesalerDetails['wholesalerLogo'];
+$wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="mikemike3662@gmail.com">
-    <meta name="description" content="inventory web app">
-    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    <meta name="title" content="CIMS: Manage your inventory, find customers online, Buy products online">
+    <meta name="description" content="CIMS is an inventory management system. Use it for tracking your inventory aas a wholesaler or retailer and finding customers too.It automate tasks for you like making an order for a wholesaler to the retailer if his/her products fall below a preset value. It also generates an invoice for the retailer. Customers can buy buy from different wholesalers and wholesalers can buy from different customers suppliers. It analyses the market trend for users too and calculates profit or loss, all in one place.">
+    <meta name="keywords" content="cims,inventory,inventory management,inventory management system,inventory management application,retail online,wholesale online,inventory management website,cims login">
+    <meta property="og:description" content="An inventory management system that automates your daily tasks">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta property="og:title" content="CIMS">
+    <meta property="og:image" content="../IMAGES/title.jpg">
+    <meta property="og:url" content="https://cims.auto.com">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
-    <link rel="icon" href="../IMAGES/title.jpg" type="image/x-icon">
     <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
-    <title>Inventory App</title>
+    <title>CIMS</title>
+    <link rel="stylesheet" href="../CSS/inventoryIndex.css">
 </head>
 <body>
     <?php require("../HEADER/wholesalerHeader.php"); ?>
     <main>
-        <article id="mainArt">
-            <article id="mainArt1">
-                <section id="mainArtSec1">
-                    <button class="sidebarBtn" id="inventoryTrackingBtn">
-                        <img src="../IMAGES/inventoryTracking.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
-                        Inventory tracking.
-                    </button>
-                    <button class="sidebarBtn" id="wholesalerSalesAndOrderBtn">
-                        <img src="../IMAGES/salesAndOrder.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
-                        Sales and Order Management.
-                    </button>
-                    <button class="sidebarBtn" id="reportingAndAnalyticsBtn">
-                        <img src="../IMAGES/reportingAndAnalytics.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
-                        Reporting and Analytics.
-                    </button>
-                    <button class="sidebarBtn" id="accountingSystemBtn">
-                        <img src="../IMAGES/accountingSystem.jpg" alt="sidebar image" class="sidebarImage" loading="lazy"><br>
-                        Accounting System.
-                    </button>
-                </section>
-            </article>
-            <article id="mainArt2">
-                <form>
-                    <!-- 2 column grid layout with text inputs for the first and last names -->
-                    <div class="row mb-4">
-                        <div class="col">
-                        <div data-mdb-input-init class="form-outline">
-                            <input type="text" id="form6Example1" class="form-control" />
-                            <label class="form-label" for="form6Example1">First name</label>
-                        </div>
-                        </div>
-                        <div class="col">
-                        <div data-mdb-input-init class="form-outline">
-                            <input type="text" id="form6Example2" class="form-control" />
-                            <label class="form-label" for="form6Example2">Last name</label>
-                        </div>
-                        </div>
+        <!-- Section: Links  -->
+        <article class="">
+            <div class="container-fluid text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- side bar grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-1">
+                        <?php require("../SIDEBAR/wholesalerSideBar.php"); ?>
                     </div>
+                    <!-- side bar grid column -->
+                    <!-- body grid column -->
+                    <div class="col-md-8 col-lg-8 col-xl-8 mx-auto mb-4" id="bodyGridDiv">
+                        <article id="mainArt2">
+                            <?php
+                            $productId = $_GET['productId'];
+                            $currentAutoStockDetails = $conn->prepare("SELECT * FROM inventory.wholesalerAutoStock WHERE wholesalerAutoStock.productId = :productId AND wholesalerAutoStock.wholesalerName = :wholesalerName");
+                            $currentAutoStockDetails->bindParam(':productId', $productId, PDO::PARAM_INT);
+                            $currentAutoStockDetails->bindParam(':wholesalerName', $wholesalerName, PDO::PARAM_STR);
+                            $currentAutoStockDetails->execute();
+                            foreach ($currentAutoStockDetails->fetchAll(PDO::FETCH_ASSOC) as $foundAutoStockDetails)
+                            ?>
+                            <form method="post" action="../ACTIONS/wholesalerEditAutoStock.php?productId=<?php echo $productId; ?>">
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" id="productName" name="productName" class="form-control" aria-label="read only input" readonly value="<?php echo $foundAutoStockDetails['productName'] ?>" />
+                                        <label class="form-label" for="productName">Product name</label>
+                                    </div>
+                                    </div>
+                                    <div class="col">
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="number" id="remainingStock" name="remainingStock" class="form-control" required value="<?php echo $foundAutoStockDetails['remainingStock'] ?>" />
+                                        <label class="form-label" for="remainingStock">Minimum amount of stock to remain</label>
+                                    </div>
+                                    </div>
+                                </div>
 
-                    <!-- Text input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="text" id="form6Example3" class="form-control" />
-                        <label class="form-label" for="form6Example3">Company name</label>
+                                <!-- Text input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="number" id="quantityToReorder" name="quantityToReorder" class="form-control" required value="<?php echo $foundAutoStockDetails['quantityToReorder']; ?>" />
+                                    <label class="form-label" for="quantityToReorder">Quantity to re-order</label>
+                                </div>
+
+                                <!-- Text input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="text" id="reorderDescription" name="reorderDescription" class="form-control" required value="<?php echo $foundAutoStockDetails['reorderDescription']; ?>" />
+                                    <label class="form-label" for="reorderDescription">Quantity description like 60 bags</label>
+                                </div>
+
+                                <!-- Email input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="text" id="supplierName" name="supplierName" class="form-control" aria-label="read only input" readonly value="<?php echo $foundAutoStockDetails['supplierName']; ?>" />
+                                    <label class="form-label" for="supplierName">Supplier name</label>
+                                </div>
+
+                                <!-- Number input -->
+                                <div data-mdb-input-init class="form-outline mb-4">
+                                    <input type="text" id="wholesalerName" class="form-control" name="wholesalerName" aria-label="readonly input" readonly value="<?php echo $foundAutoStockDetails['wholesalerName'] ?>" />
+                                    <label class="form-label" for="wholesalerName">Wholesaler name</label>
+                                </div>
+                                <!-- Submit button -->
+                                <button data-mdb-ripple-init type="submit" name="submit" class="btn btn-primary btn-block mb-4">EDIT YOUR AUTO-ORDER!</button>
+                            </form>
+                        </article>
                     </div>
-
-                    <!-- Text input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="text" id="form6Example4" class="form-control" />
-                        <label class="form-label" for="form6Example4">Address</label>
+                    <!-- body grid column -->
+                    <!-- right bar grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <?php require("../RIGHTBAR/wholesalerRightBar.php"); ?>
                     </div>
-
-                    <!-- Email input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="email" id="form6Example5" class="form-control" />
-                        <label class="form-label" for="form6Example5">Email</label>
-                    </div>
-
-                    <!-- Number input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="number" id="form6Example6" class="form-control" />
-                        <label class="form-label" for="form6Example6">Phone</label>
-                    </div>
-
-                    <!-- Message input -->
-                    <div data-mdb-input-init class="form-outline mb-4">
-                        <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-                        <label class="form-label" for="form6Example7">Additional information</label>
-                    </div>
-
-                    <!-- Checkbox -->
-                    <div class="form-check d-flex justify-content-center mb-4">
-                        <input
-                        class="form-check-input me-2"
-                        type="checkbox"
-                        value=""
-                        id="form6Example8"
-                        checked
-                        />
-                        <label class="form-check-label" for="form6Example8"> Create an account? </label>
-                    </div>
-
-                    <!-- Submit button -->
-                    <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">EDIT!</button>
-                </form>
-            </article>
+                    <!-- right bar grid column -->
+                </div>
+            <!-- Grid row -->
+            </div>
         </article>
     </main>
     <?php require("../FOOTER/wholesalerFooter.php"); ?>
-        <article>
-                <section id="sessionIdSec"><?php echo $wholesalerLoginId; ?></section>
-        </article>
     <script>
         var link = document.createElement('link');
         link.rel = 'stylesheet';

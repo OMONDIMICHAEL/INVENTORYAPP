@@ -59,49 +59,29 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
                         <article id="mainArt2">
                             <section id="mainArtSec2">
                                 <?php
-                                $productId = $_GET['productId'];
-                                $checkProductDetails = $conn->prepare("SELECT * FROM inventory.supplierProduct WHERE supplierProduct.productId = :productId");
-                                $checkProductDetails->bindParam(':productId', $productId, PDO::PARAM_INT);
-                                $checkProductDetails->execute();
-                                foreach($checkProductDetails->fetchAll(PDO::FETCH_ASSOC) as $productDetails)
+                                $wholesalerLoginId = $_GET['wholesalerLoginId'];
+                                $checkWholesalerProfile = $conn->prepare("SELECT * FROM inventory.wholesalersRegistered WHERE wholesalersRegistered.wholesalerId = :wholesalerLoginId");
+                                $checkWholesalerProfile->bindParam(':wholesalerLoginId', $wholesalerLoginId, PDO::PARAM_STR);
+                                $checkWholesalerProfile->execute();
+                                foreach($checkWholesalerProfile->fetchAll(PDO::FETCH_ASSOC) as $wholesalerProfileDetails)
                                 ?>
-                                <form action="../ACTIONS/orderProduct.php?productId=<?php echo $productId ?>" method="post">
-                                    <div id="productId" class="form-text">
-                                        The product ID.
-                                    </div>
-                                    <div class="form-outline mb-3" data-mdb-input-init>
-                                        <input class="form-control" id="productId" type="text" placeholder="Disabled input"
-                                            aria-label="disabled input example" disabled name="productId" value="<?php echo $productDetails['productId'] ?>"/>
-                                    </div>
-                                    <div id="productName" class="form-text">
-                                        The product Name.
-                                    </div>
-                                    <div class="form-outline mb-3" data-mdb-input-init>
-                                        <input type="text" name="productName" value="<?php echo $productDetails['productName']; ?>" class="form-control" id="productName" aria-label="disabled input example" disabled />
-                                    </div>
-                                    <div id="quantityOrdering" class="form-text">
-                                        Quantity you want to order.
-                                    </div>
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <input type="number" id="quantityOrdering" class="form-control" aria-describedby="quantityOrdering" name="quantityOrdering" required />
-                                        <label class="form-label" for="quantityOrdering">Enter number</label>
-                                    </div>
-                                    <div id="quantityDescription" class="form-text">
-                                        Describe the amount you want to order.
-                                    </div>
-                                    <div class="form-outline" data-mdb-input-init>
-                                        <input type="text" id="quantityDescription" class="form-control" aria-describedby="quantityDescription" name="quantityDescription" required />
-                                        <label class="form-label" for="quantityDescription">Describe the order</label>
-                                    </div>
-                                    <div id="supplierName" class="form-text">
-                                        Supplier Name.
-                                    </div>
-                                    <div class="form-outline mb-3" data-mdb-input-init>
-                                        <input class="form-control" id="supplierName" type="text"
-                                            aria-label="disabled input example" disabled name="supplierName" value="<?php echo $productDetails['supplierName'] ?>"/>
-                                    </div>
-                                    <button type="submit" name="submit" class="btn btn-success" data-mdb-ripple-init>Order Product.</button>
-                                </form>
+                                <span style="float:right;"><a href="editWholesalerProfile.php?wholesalerNum=<?php echo $wholesalerProfileDetails['wholesalerNum'] ?>">EDIT PROFILE.</a></span><br>
+                                <div class="card mb-3">
+                                    <span>Name.</span>
+                                    <p><?php echo $wholesalerProfileDetails['wholesalerName']; ?></p>
+                                </div>
+                                <div class="card mb-3">
+                                    <span>Email.</span>
+                                    <p><?php echo $wholesalerProfileDetails['wholesalerEmail']; ?></p>
+                                </div>
+                                <div class="card mb-3">
+                                    <span>Phone.</span>
+                                    <p><?php echo $wholesalerProfileDetails['wholesalerPhone']; ?></p>
+                                </div>
+                                <div class="card mb-3">
+                                    <span>Password.</span>
+                                    <p><?php echo $wholesalerProfileDetails['wholesalerPassword']; ?></p>
+                                </div>
                             </section>
                         </article>
                     </div>
