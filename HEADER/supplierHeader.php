@@ -19,22 +19,16 @@
   $_SESSION['LAST_ACTIVITY'] = time();
   ?>
   <article id="headerArt">
-    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-      <!-- Container wrapper -->
+    <nav class="navbar navbar-expand-sm">
       <div class="container-fluid">
-        <!-- Toggle button -->
-        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Navbar brand -->
-          <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <span class="fas fa-warehouse"></span>
-          </a>
-          <!-- Left links -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)"><span class="bi bi-house"></span></a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="javascript:void(0)" id="supplierInventoryTrackingBtn">Inventory Tracking</a>
             </li>
@@ -48,65 +42,62 @@
               <a class="nav-link" href="javascript:void(0)" id="supplierAccountingSystemBtn">My Account.</a>
             </li>
           </ul>
-          <!-- Left links -->
-        </div>
-        <!-- Collapsible wrapper -->
-
-        <!-- Right elements -->
-        <div class="d-flex align-items-center">
-          <!-- Icon -->
-          <a class="text-reset me-3" href="#">
-            <i class="fas fa-shopping-cart"></i>
-          </a>
-
-          <!-- Notifications -->
-          <div class="dropdown">
-            <a data-mdb-dropdown-init class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false">
-              <i class="fas fa-bell"></i>
-              <span class="badge rounded-pill badge-notification bg-danger">1</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-              <li>
-                <a class="dropdown-item" href="#">Some news</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Another news</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </li>
-            </ul>
+          <div class="d-flex align-items-center">
+            <div>
+              <a class="text-reset me-3" href="#">
+                <i class="bi bi-cart-fill"></i>
+              </a>
+            </div>
+            <div class="dropdown">
+              <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" aria-expanded="false" data-bs-toggle="dropdown">
+                <i class="bi bi-bell-fill"></i>
+                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="#">Some news</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Another news</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <a class="dropdown-toggle d-flex align-items-center" href="#"  id="navbarDropdownMenuAvatar" role="button" aria-expanded="false" data-bs-toggle="dropdown">
+              <!-- <span class="bi bi-caret-down-fill"> -->
+                <img id="supplierLogo" src="<?php echo $supplierLogoPath; ?>" class='img-fluid' alt='<?php echo $supplierLogo; ?>'/>
+              </span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                <li>
+                  <a class="dropdown-item" href="supplierProfile.php?loginId=<?php echo $loginId; ?>">My profile</a>
+                </li>
+                <li>
+                   <div class="input-group" id="darkModeDiv">
+                      <span class="bi bi-moon-fill"></span>
+                      <button id="darkModeBtn">Dark Mode.</button>
+                    </div> 
+                </li>
+                <li>
+                   <div class="input-group">
+                      <span class="bi bi-brightness-high-fill"></span>
+                      <button id="lightModeBtn">Light Mode.</button>
+                    </div> 
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Settings</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="supplierLogout.php">Logout</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <!-- Avatar -->
-          <div class="dropdown">
-            <a data-mdb-dropdown-init class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"  id="navbarDropdownMenuAvatar" role="button" aria-expanded="false">
-            <span class="fas fa-circle-chevron-down">
-              <img id="supplierLogo" src="<?php echo $supplierLogoPath; ?>" class='img-fluid' alt='<?php echo $supplierLogo; ?>'/>
-            </span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-              <li>
-                <a class="dropdown-item" href="supplierProfile.php?loginId=<?php echo $loginId; ?>">My profile</a>
-              </li>
-              <li>
-                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-                    togle darkmode
-                  </label>
-
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Settings</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="supplierLogout.php">Logout</a>
-              </li>
-            </ul>
-          </div>
         </div>
-        <!-- Right elements -->
       </div>
-      <!-- Container wrapper -->
     </nav>
-    <!-- Navbar -->
   </article>
 </header>

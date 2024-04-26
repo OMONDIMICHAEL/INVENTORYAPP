@@ -9,15 +9,12 @@
                     foreach ($getProductImagesDesc->fetchAll(PDO::FETCH_ASSOC) as $supplierProductImageDesc) {
                         echo "
                             <figure>
-                                <div class='bg-image hover-overlay' data-mdb-ripple-init id='' data-mdb-ripple-color='light'>
                                 "?>
+                                <a href="wholesalerProductToOrder.php?productId=<?php echo $supplierProductImageDesc['productId'];?>">
                                     <img src="<?php echo $supplierProductImageDesc['productImagePath']; ?>" alt="<?php echo $supplierProductImageDesc['productImage']; ?>" class="img-fluid"/>
                                     <figcaption><?php echo $supplierProductImageDesc['productName']; ?> @ksh <?php echo $supplierProductImageDesc['productSellingPrice']; ?></figcaption>
-                                <?php echo "
-                                    <a href='wholesalerProductToOrder.php?productId="?><?php echo $supplierProductImageDesc['productId'];?><?php echo "'>
-                                        <div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div>
                                     </a>
-                                </div>
+                                <?php echo "
                             </figure>
                         ";
                     }

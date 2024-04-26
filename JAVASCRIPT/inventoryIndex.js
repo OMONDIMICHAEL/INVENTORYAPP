@@ -20,10 +20,8 @@ const supplierOrderInvoiceSec = document.getElementById("supplierOrderInvoiceSec
 const supplierSalesSec = document.getElementById("supplierSalesSec");
 const supplierInventoryTrackingBtn = document.getElementById("supplierInventoryTrackingBtn");
 const downloadInvoiceBtn = document.getElementById("downloadInvoiceBtn");
-// const closeMenuIcon = document.getElementById("closeMenuIcon");
-// const mainArtSec1 = document.getElementById("mainArtSec1");
-// const mainArt1 = document.getElementById("mainArt1");
-// const openMenuIcon = document.getElementById("openMenuIcon");
+const darkModeBtn = document.getElementById("darkModeBtn");
+const lightModeBtn = document.getElementById("lightModeBtn");
 
 document.addEventListener('DOMContentLoaded', function() {
         if (wholesalerSalesAndOrderBtn) {
@@ -102,30 +100,25 @@ document.addEventListener('DOMContentLoaded', function() {
         newWin.print();
         newWin.close();
         });}
-        // if (closeMenuIcon) {
-        // closeMenuIcon.addEventListener("click", function(){
-        // mainArt1.style.display = "none";
-        // closeMenuIcon.style.display = "none";
-        // openMenuIcon.style.display = "block";
-        // });}
-        // if (openMenuIcon) {
-        // openMenuIcon.addEventListener("click", function(){
-        // mainArt1.style.display = "block";
-        // closeMenuIcon.style.display = "block";
-        // openMenuIcon.style.display = "none";
-        // });}
-});
-function toggleDarkMode() {
-    const bodyElement = document.body;
-    bodyElement.classList.toggle("dark-mode");
-    
-    // Save the current mode to local storage
-    if(bodyElement.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
-  }
+        if (darkModeBtn) {
+            darkModeBtn.addEventListener('click', function(e) {
+            const bodyElement = document.body;
+            bodyElement.classList.toggle("dark-mode");
+            if(bodyElement.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        });}
+        if (lightModeBtn) {
+            lightModeBtn.addEventListener("click", function(e) {
+                const bodyElement = document.body;
+                bodyElement.classList.remove("dark-mode");
+                localStorage.setItem("theme", "light");
+            });
+            
+        }
+    });
   
   // Check for saved user preference, if any, on page load
   document.addEventListener("DOMContentLoaded", () => {

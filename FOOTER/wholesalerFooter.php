@@ -11,23 +11,23 @@
 
     <!-- Right -->
     <div>
-      <a href="https://web.facebook.com/profile.php?id=61558606354270" target="_blank" rel="noopener noreferrer" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://twitter.com/Mk16080936" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
+      <a href="" class="me-4 text-reset">
+        <i class="bi bi-facebook"></i>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
+        <i class="bi bi-twitter-x"></i>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
+        <i class="bi bi-google"></i>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
+        <i class="bi bi-instagram"></i>
       </a>
-      <a href="https://github.com/OMONDIMICHAEL?tab=repositories" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
+      <a href="" class="me-4 text-reset">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="bi bi-github"></i>
       </a>
     </div>
     <!-- Right -->
@@ -44,14 +44,14 @@
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-1">
           <a href="#">
-          <i class="fas fa-warehouse"></i>
+          <i class="bi bi-house-heart"></i>
           </a>IMS APPLICATION
           </h6>
           <p>
             Terms And Conditions.
           </p>
           <p>
-            <i class="fas fa-envelope me-3"></i>
+            <i class="bi bi-envelope-fill"></i>
             <a href="mailto:<?php echo $wholesalerEmail; ?>"><?php echo $wholesalerEmail; ?></a>
           </p>
         </div>
@@ -103,13 +103,13 @@
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i> Kisumu, Ksm 41, KENYA</p>
+          <p><i class="bi bi-geo-alt-fill"></i> Kisumu, Ksm 41, KENYA</p>
           <p>
-            <i class="fas fa-envelope me-3"></i>
+            <i class="bi bi-envelope-fill"></i>
             <a href="mailto:mikemike3662@gmail.com">mikemike3662@gmail.com</a>
           </p>
-          <p><i class="fas fa-phone me-3"></i> + 254 762 307 016</p>
-          <p><i class="fas fa-print me-3"></i> + 254 791 716 367</p>
+          <p><i class="bi bi-telephone-fill"></i> + 254 762 307 016</p>
+          <p><i class="bi bi-telephone-fill"></i> + 254 791 716 367</p>
         </div>
         <!-- Grid column -->
       </div>

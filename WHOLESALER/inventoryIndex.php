@@ -42,8 +42,8 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
     <meta property="og:image" content="../IMAGES/title.jpg">
     <meta property="og:url" content="https://cims.auto.com">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
     <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
     <title>CIMS</title>
     <link rel="stylesheet" href="../CSS/inventoryIndex.css">
@@ -243,14 +243,13 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
                                     foreach ($getWholesalerProducts->fetchAll(PDO::FETCH_ASSOC) as $wholesalerProducts) {
                                         echo "
                                             <div class='card'>
-                                                <div class='bg-image hover-overlay' data-mdb-ripple-init id='wholesalerProductImage' data-mdb-ripple-color='light'>
                                                     "?>
-                                                    <img src="<?php echo $wholesalerProducts['productImagePath']; ?>" alt="<?php echo $wholesalerProductDetailsFound['productImage']; ?>" class="img-fluid"/>
+                                                    <div class="container-fluid">
+                                                        <a href="wholesalerProductDetails.php?productId=<?php echo $wholesalerProducts['productId'];?>">
+                                                        <img src="<?php echo $wholesalerProducts['productImagePath']; ?>" alt="<?php echo $wholesalerProductDetailsFound['productImage']; ?>" class="img-fluid" style="max-height: 200px;"/>
+                                                        </a>
+                                                    </div>
                                                     <?php echo "
-                                                    <a href='wholesalerProductDetails.php?productId="?><?php echo $wholesalerProducts['productId'];?><?php echo "'>
-                                                        <div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div>
-                                                    </a>
-                                                </div>
                                                 <div class='card-body'>
                                                     <span class='card-text' id='secGridItemSpan'></span> ".$wholesalerProducts['productName']."<br>
                                                     <span class='card-text' id='secGridItemSpan'>Available:</span> ".$wholesalerProducts['quantityOrdering']."<br>
