@@ -128,11 +128,4 @@
         <article>
                 <section id="sessionIdSec"><?php echo $loginId; ?></section>
         </article>
-    <script>
-        // var link = document.createElement('link');
-        // link.rel = 'stylesheet';
-        // link.href = '../CSS/inventoryIndex.css';
-        // document.head.appendChild(link);
-    </script>
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script> -->
     <script src="../JAVASCRIPT/inventoryIndex.js" defer="true"></script>

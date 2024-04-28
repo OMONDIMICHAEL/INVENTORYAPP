@@ -29,7 +29,7 @@ session_start();
     <header>
         <article id="headerArt">
             <section>
-                <h1><u><abbr title="INVENTORY MANAGEMENT SYSTEM">I.M.S</abbr> LOGIN.</u></h1>
+                <h1><u><abbr title="CUSTOMIZED INVENTORY MANAGEMENT SYSTEM">C.I.M.S</abbr> LOGIN.</u></h1>
             </section>
         </article>
     </header>

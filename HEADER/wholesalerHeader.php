@@ -36,10 +36,10 @@
               <a class="nav-link" href="javascript:void(0)" id="wholesalerSalesAndOrderBtn">Sales And Order</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" id="reportingAndAnalyticsBtn">Reports And Analysis</a>
+              <a class="nav-link" href="javascript:void(0)" id="wholesalerReportingAndAnalyticsBtn">Reports And Analysis</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" id="accountingSystemBtn">My Account.</a>
+              <a class="nav-link" href="javascript:void(0)" id="wholesalerAccountBtn">My Account.</a>
             </li>
           </ul>
           <div class="d-flex align-items-center">

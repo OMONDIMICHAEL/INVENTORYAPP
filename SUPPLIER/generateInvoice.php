@@ -58,8 +58,8 @@ $supplierLogoPath = $supplierDetails['supplierLogoPath'];
                             <article id="bodyArt">
                                 <section id="downloadInvoiceSec">
                                     <div class="input-group">
-                                        <div class="input-group-text"><span class="fas fa-download "></span></div>
-                                        <button id="downloadInvoiceBtn" type="button" data-mdb-ripple-init class="btn btn-danger">DOWNLOAD.</button>
+                                        <div class="input-group-text"><span class="bi bi-printer-fill "></span></div>
+                                        <button id="downloadInvoiceBtn" type="button" class="btn btn-danger">DOWNLOAD.</button>
                                     </div>
                                     <?php
                                             $orderId = $_GET['orderId'];

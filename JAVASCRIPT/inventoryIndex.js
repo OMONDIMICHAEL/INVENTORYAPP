@@ -1,10 +1,10 @@
 
 const salesAndOrderBtn = document.getElementById("salesAndOrderBtn");
-const wholesalerRegNavBtn = document.getElementById("wholesalerRegNavBtn");
-const wholesalerLoginNavBtn = document.getElementById("wholesalerLoginNavBtn");
-const registerNavBtn = document.getElementById("registerNavBtn");
+// const wholesalerRegNavBtn = document.getElementById("wholesalerRegNavBtn");
+// const wholesalerLoginNavBtn = document.getElementById("wholesalerLoginNavBtn");
+// const registerNavBtn = document.getElementById("registerNavBtn");
 const inventoryTrackingBtn = document.getElementById("inventoryTrackingBtn");
-const loginNavBtn = document.getElementById("loginNavBtn");
+// const loginNavBtn = document.getElementById("loginNavBtn");
 const mySalesSec = document.getElementById("mySalesSec");
 const makeOrderSec = document.getElementById("makeOrderSec");
 const myOrdersSec = document.getElementById("myOrdersSec");
@@ -22,6 +22,10 @@ const supplierInventoryTrackingBtn = document.getElementById("supplierInventoryT
 const downloadInvoiceBtn = document.getElementById("downloadInvoiceBtn");
 const darkModeBtn = document.getElementById("darkModeBtn");
 const lightModeBtn = document.getElementById("lightModeBtn");
+const supplierReportingAndAnalyticsBtn = document.getElementById("supplierReportingAndAnalyticsBtn");
+const supplierAccountBtn = document.getElementById("supplierAccountBtn");
+const wholesalerReportingAndAnalyticsBtn = document.getElementById("wholesalerReportingAndAnalyticsBtn");
+const wholesalerAccountBtn = document.getElementById("wholesalerAccountBtn");
 
 document.addEventListener('DOMContentLoaded', function() {
         if (wholesalerSalesAndOrderBtn) {
@@ -46,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
             makeOrderSec.style.display = "block"
             mySalesSec.style.display = "none"
         });}
-        if (loginNavBtn) {
-        loginNavBtn.addEventListener("click", function () {
-            location.href = "supplierLogin.php"
-        });}
+        // if (loginNavBtn) {
+        // loginNavBtn.addEventListener("click", function () {
+        //     location.href = "supplierLogin.php"
+        // });}
         if (inventoryTrackingBtn) {
         inventoryTrackingBtn.addEventListener("click", function () {
             location.href = "inventoryIndex.php"
@@ -58,18 +62,18 @@ document.addEventListener('DOMContentLoaded', function() {
         supplierInventoryTrackingBtn.addEventListener("click", function () {
             location.href = "supplierIndex.php"
         });}
-        if (registerNavBtn) {
-        registerNavBtn.addEventListener("click", function () {
-            location.href = "supplierSignup.php"
-        });}
-        if (wholesalerLoginNavBtn) {
-        wholesalerLoginNavBtn.addEventListener("click", function () {
-            location.href = "wholesalerLogin.php"
-        });}
-        if (wholesalerRegNavBtn) {
-        wholesalerRegNavBtn.addEventListener("click", function () {
-            location.href = "wholesalerSignup.php"
-        });}
+        // if (registerNavBtn) {
+        // registerNavBtn.addEventListener("click", function () {
+        //     location.href = "supplierSignup.php"
+        // });}
+        // if (wholesalerLoginNavBtn) {
+        // wholesalerLoginNavBtn.addEventListener("click", function () {
+        //     location.href = "wholesalerLogin.php"
+        // });}
+        // if (wholesalerRegNavBtn) {
+        // wholesalerRegNavBtn.addEventListener("click", function () {
+        //     location.href = "wholesalerSignup.php"
+        // });}
         if (salesAndOrderBtn) {
         salesAndOrderBtn.addEventListener("click", function () {
         location.href='supplierSalesAndOrder.php';
@@ -118,15 +122,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
         }
+        const savedTheme = localStorage.getItem("theme");
+        if(savedTheme === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+        if (supplierReportingAndAnalyticsBtn) {
+        supplierReportingAndAnalyticsBtn.addEventListener("click", function () {
+        location.href = "supplierReportAndAnalysis.php";
+        });}
+        if (supplierAccountBtn) {
+        supplierAccountBtn.addEventListener("click", function () {
+        location.href = "supplierAccount.php";
+        });}
+        if (wholesalerReportingAndAnalyticsBtn) {
+            wholesalerReportingAndAnalyticsBtn.addEventListener("click", function () {
+        location.href = "wholesalerReportAndAnalysis.php";
+        });}
+        if (wholesalerAccountBtn) {
+        wholesalerAccountBtn.addEventListener("click", function () {
+        location.href = "wholesalerAccount.php";
+        });}
     });
-  
-  // Check for saved user preference, if any, on page load
-  document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme");
-    
-    // Apply the saved theme
-    if(savedTheme === "dark") {
-      document.body.classList.add("dark-mode");
-    }
-  });
-//   ///////////////////////////////
+
