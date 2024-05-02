@@ -3,21 +3,18 @@
         <div id="captioned-gallery">
             <figure class="rightBarSlider">
                 <?php
-                    $getProductImages = $conn->prepare("SELECT * FROM inventory.supplierProduct");
-                    $getProductImages->execute();
-                    $getProductImages->rowCount();
-                    foreach ($getProductImages->fetchAll(PDO::FETCH_ASSOC) as $supplierProductImage) {
+                    $getProductImagesAsc = $conn->prepare("SELECT * FROM inventory.supplierProduct");
+                    $getProductImagesAsc->execute();
+                    $getProductImagesAsc->rowCount();
+                    foreach ($getProductImagesAsc->fetchAll(PDO::FETCH_ASSOC) as $supplierProductImageAsc) {
                         echo "
                             <figure>
-                                <div class='bg-image hover-overlay' data-mdb-ripple-init id='' data-mdb-ripple-color='light'>
                                 "?>
-                                    <img src="<?php echo $supplierProductImage['productImagePath']; ?>" alt="<?php echo $supplierProductImage['productImage']; ?>" class="img-fluid"/>
-                                    <figcaption><?php echo $supplierProductImage['productName']; ?> @ksh <?php echo $supplierProductImage['productSellingPrice']; ?></figcaption>
+                                <a href="supplierProductDetails.php?productId=<?php echo $supplierProductImageAsc['productId'];?>">
+                                    <img src="<?php echo $supplierProductImageAsc['productImagePath']; ?>" alt="<?php echo $supplierProductImageAsc['productImage']; ?>" class="img-fluid"/>
+                                    <figcaption><?php echo $supplierProductImageAsc['productName']; ?> @ksh <?php echo $supplierProductImageAsc['productSellingPrice']; ?></figcaption>
+                                </a>
                                 <?php echo "
-                                    <a href='#!'>
-                                        <div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div>
-                                    </a>
-                                </div>
                             </figure>
                         ";
                     }
@@ -34,15 +31,12 @@
                     foreach ($getProductImagesDesc->fetchAll(PDO::FETCH_ASSOC) as $supplierProductImageDesc) {
                         echo "
                             <figure>
-                                <div class='bg-image hover-overlay' data-mdb-ripple-init id='' data-mdb-ripple-color='light'>
                                 "?>
+                                <a href="supplierProductDetails.php?productId=<?php echo $supplierProductImageDesc['productId'];?>">
                                     <img src="<?php echo $supplierProductImageDesc['productImagePath']; ?>" alt="<?php echo $supplierProductImageDesc['productImage']; ?>" class="img-fluid"/>
                                     <figcaption><?php echo $supplierProductImageDesc['productName']; ?> @ksh <?php echo $supplierProductImageDesc['productSellingPrice']; ?></figcaption>
+                                </a>
                                 <?php echo "
-                                    <a href='#!'>
-                                        <div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div>
-                                    </a>
-                                </div>
                             </figure>
                         ";
                     }

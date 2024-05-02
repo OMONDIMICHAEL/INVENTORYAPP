@@ -39,8 +39,6 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script"> -->
-    <script src="../JAVASCRIPT/inventoryIndex.js"></script>
     <title>CIMS</title>
     <link rel="stylesheet" href="../CSS/inventoryIndex.css">
 </head>

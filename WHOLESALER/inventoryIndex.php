@@ -43,8 +43,7 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
     <meta property="og:url" content="https://cims.auto.com">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
-    <link rel="preload" href="../JAVASCRIPT/inventoryIndex.js" as="script">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>CIMS</title>
     <link rel="stylesheet" href="../CSS/inventoryIndex.css">
 </head>
@@ -204,22 +203,23 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
                                         
                                     }
 
-                                                    // function sendMail($wholesalerEmail,$wholesalerName,$autoSupplierNameInArr,$autoProductDetailsArr,$autoProductDetailsArrIndex,$autoProductNameInArr){
-                                                    //     $mail = new PHPMailer(true);
-                                                    //     try{
-                                                    //         $mail->isSMTP();
-                                                    //         $mail->Host = 'smtp.gmail.com';
-                                                    //         $mail->SMTPAuth = true;
-                                                    //         $mail->Username = 'mikemike3662@gmail.com';
-                                                    //         $mail->Password = 'qwanwcfbdsudeatf';
-                                                    //         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                                                    //         $mail->Port = 465;
-                                                    //         $mail->setFrom('mikemike3662@gmail.com', 'IMS APP');
-                                                    //         $mail->addAddress($wholesalerEmail, $wholesalerName);
-                                                    //         $mail->addReplyTo('mikemike3662@gmail.com', 'IMS APPLICATION');
-                                                    //         $mail->isHTML(true);
-                                                    //         $mail->Subject = 'LOW STOCK ALERT.';
-                                                    //         $mail->Body = "<p>$autoProductNameInArr IS LOW and an order has been made for you by IMS as was provided by <b>YOU</b>. Pay <b>$autoSupplierNameInArr</b> to complete the order.</p>";
+                                                    function sendMail($wholesalerEmail,$wholesalerName,$autoSupplierNameInArr,$autoProductDetailsArr,$autoProductDetailsArrIndex,$autoProductNameInArr){
+                                                        $mail = new PHPMailer(true);
+                                                        try{
+                                                            $mail->isSMTP();
+                                                            $mail->Host = 'smtp.gmail.com';
+                                                            $mail->SMTPAuth = true;
+                                                            $mail->Username = 'mikemike3662@gmail.com';
+                                                            $mail->Password = 'qwanwcfbdsudeatf';
+                                                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                                                            $mail->Port = 465;
+                                                            $mail->setFrom('mikemike3662@gmail.com', 'IMS APP');
+                                                            $mail->addAddress($wholesalerEmail, $wholesalerName);
+                                                            $mail->addReplyTo('mikemike3662@gmail.com', 'IMS APPLICATION');
+                                                            $mail->isHTML(true);
+                                                            $mail->Subject = 'LOW STOCK ALERT.';
+                                                            $mail->Body = "<p>$autoProductNameInArr IS LOW and an order has been made for you by IMS as was provided by <b>YOU</b>. Pay <b>$autoSupplierNameInArr</b> to complete the order.</p>";
+                                                            
                                                             // dont uncomment below
                                                             // $body = "<p>The following products are very low</p><ul>";
                                                             // foreach ($autoProductDetailsArr[3] as $autoProductDetailsArrIndex => $autoProductNameInArr) {
@@ -227,15 +227,16 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
                                                             // }
                                                             // $mail->Body = $body;
                                                             // dont uncomment above
-                                                            // $mail->AltBody = 'An order has been made for you on your product. Visit your IMS application and pay the wholesaler to complete the process.';
-                                                            // $mail->send();
-                                                        // } catch (Exception $e) {
-                                                                // echo "mail err: {$mail->ErrorInfo}";
-                                                            // }
-                                                    // }
-                                    // if ($updateWholesalerProduct) {
-                                        // sendMail($wholesalerEmail,$wholesalerName,$autoSupplierNameInArr,$autoProductDetailsArr[3],$autoProductDetailsArrIndex,$autoProductNameInArr);
-                                    // }
+                                                            
+                                                            $mail->AltBody = 'An order has been made for you on your product. Visit your IMS application and pay the wholesaler to complete the process.';
+                                                            $mail->send();
+                                                        } catch (Exception $e) {
+                                                                echo "email notification not sent, poor connection"; //{$mail->ErrorInfo}";
+                                                            }
+                                                    }
+                                    if ($updateWholesalerProduct) {
+                                        sendMail($wholesalerEmail,$wholesalerName,$autoSupplierNameInArr,$autoProductDetailsArr[3],$autoProductDetailsArrIndex,$autoProductNameInArr);
+                                    }
                                     $getWholesalerProducts = $conn->prepare("SELECT * FROM inventory.wholesalerProduct WHERE wholesalerProduct.wholesalerName = :wholesalerName");
                                     $getWholesalerProducts->bindParam(':wholesalerName', $wholesalerName);
                                     $getWholesalerProducts->execute();
@@ -246,7 +247,7 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
                                                     "?>
                                                     <div class="container-fluid">
                                                         <a href="wholesalerProductDetails.php?productId=<?php echo $wholesalerProducts['productId'];?>">
-                                                        <img src="<?php echo $wholesalerProducts['productImagePath']; ?>" alt="<?php echo $wholesalerProductDetailsFound['productImage']; ?>" class="img-fluid" style="max-height: 200px;"/>
+                                                        <img src="<?php echo $wholesalerProducts['productImagePath']; ?>" alt="<?php echo $wholesalerProducts['productImage']; ?>" class="img-fluid" style="max-height: 200px;"/>
                                                         </a>
                                                     </div>
                                                     <?php echo "

@@ -121,7 +121,11 @@
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2024 Copyright:
-    <a class="text-reset fw-bold" href="#!">My IMS App</a>
+    <a class="text-reset fw-bold" href="#!">My CIMS App</a>
   </div>
   <!-- Copyright -->
 </footer>
+        <article>
+                <section id="sessionIdSec"><?php echo $wholesalerLoginId; ?></section>
+        </article>
+    <script src="../JAVASCRIPT/inventoryIndex.js" defer="true"></script>
