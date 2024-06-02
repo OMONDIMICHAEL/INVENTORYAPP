@@ -59,7 +59,23 @@ $supplierLogoPath = $supplierDetails['supplierLogoPath'];
                 <div class="col-md-8 col-lg-8 col-xl-8 mx-auto mb-4" id="bodyGridDiv">
                         <div class="container-fluid text-center text-md-start mt-5">
                             <div class="" id="">
-                                <span style="color:red;">still under construction</span>
+                                <span style="color:red;">still under construction; It will contain the following</span>
+                                <section>
+                                    <dl>
+                                        <dt>Inventory turnover rates</dt>
+                                        <dd>High turnover rate</dd>
+                                        <dd>Low turnover rate</dd>
+                                        <dd>Industry Comparison</dd>
+                                        <dd>Trend analysis</dd>
+                                        <dt>Generating reports</dt>
+                                        <dd>Sales report</dd>
+                                        <dd>Financial report</dd>
+                                        <dd>Inventory report</dd>
+                                        <dd>Purchasing report</dd>
+                                        <dd>Customer report</dd>
+                                        <dd>Operational report</dd>
+                                    </dl>
+                                </section>
                                 <canvas id="myChart"></canvas>
                                 <script>
                                       // Get the canvas element

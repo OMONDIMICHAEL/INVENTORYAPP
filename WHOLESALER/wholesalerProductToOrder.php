@@ -108,12 +108,6 @@ $wholesalerLogoPath = $wholesalerDetails['wholesalerLogoPath'];
         </article>
     </main>
     <?php require("../FOOTER/wholesalerFooter.php"); ?>
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = '../CSS/inventoryIndex.css';
-        document.head.appendChild(link);
-    </script>
     <script src="../JAVASCRIPT/inventoryIndex.js" defer="true"></script>
 </body>
 </html>

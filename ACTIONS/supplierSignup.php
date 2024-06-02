@@ -52,17 +52,22 @@ if ($_FILES['supplierLogo']['size'] > 5*MB) {
         <?php
         die();
     }
-    $checkSupplierNameRegistration = $conn->prepare("SELECT * FROM inventory.suppliersRegistered WHERE suppliersRegistered.supplierName = :supplierName");
-    $checkSupplierNameRegistration->bindParam(':supplierName',$wsupplierName, PDO::PARAM_STR);
-    $checkSupplierNameRegistration->execute();
-    if ($checkSupplierNameRegistration->rowCount() >= 1) {
-        ?>
-        <script>
-            alert("Error! Supplier Name Already Registered by someone");
-            location="../SUPPLIER/supplierLogin.php";
-        </script>
-        <?php
-        die();
+    try{
+        $checkSupplierNameRegistration = $conn->prepare("SELECT * FROM inventory.suppliersRegistered WHERE suppliersRegistered.supplierName = :supplierName");
+        $checkSupplierNameRegistration->bindParam(':supplierName', $supplierName, PDO::PARAM_STR);
+        $checkSupplierNameRegistration->execute();
+        if ($checkSupplierNameRegistration->rowCount() >= 1) {
+            ?>
+            <script>
+                alert("Error! Supplier Name Already Registered by someone");
+                location="../SUPPLIER/supplierLogin.php";
+            </script>
+            <?php
+            die();
+        }
+    } catch (PDOException $e) {
+        // Handle PDOException
+        echo "Error: " . $e->getMessage();
     }
     $checkSupplierEmailRegistration = $conn->prepare("SELECT * FROM inventory.suppliersRegistered WHERE suppliersRegistered.supplierEmail = :supplierEmail");
     $checkSupplierEmailRegistration->bindParam(':supplierEmail',$supplierEmail, PDO::PARAM_STR);
